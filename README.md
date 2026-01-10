@@ -8,11 +8,11 @@ A simple web application to turn anything quantifiable into a contest. Leaderboa
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] Proper use of Markdown
+- [x] Proper use of Markdown
 - [x] A concise and compelling elevator pitch
 - [x] Description of key features
-- [ ] Description of how you will use each technology
-- [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
+- [x] Description of how you will use each technology
+- [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
 
@@ -50,7 +50,6 @@ I am going to use the required technologies in the following ways.
     - User login and fetching login information
     - Storing and updating created leaderboards and submitted scores
     - Retrieving leaderboard information
-    - 
 - **DB/Login** - Login information, user information, leaderboard data, etc stored in DB.
 - **WebSocket** - Leaderboards updated in real time with WebSocket.
 
