@@ -28,7 +28,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 sequenceDiagram
     actor You
     actor Website
-    You->>Website: Replace this with your design
+    Me->>Website: Replace this with your design
 ```
 
 ### Key features
