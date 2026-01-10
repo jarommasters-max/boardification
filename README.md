@@ -6,13 +6,10 @@ A simple web application to turn anything quantifiable into a contest. Leaderboa
 
 ## 🚀 Specification Deliverable
 
-> [!NOTE]
-> Fill in this sections as the submission artifact for this deliverable. You can refer to this [example](https://github.com/webprogramming260/startup-example/blob/main/README.md) for inspiration.
-
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [ ] Proper use of Markdown
-- [ ] A concise and compelling elevator pitch
+- [x] A concise and compelling elevator pitch
 - [ ] Description of key features
 - [ ] Description of how you will use each technology
 - [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
@@ -36,16 +33,18 @@ sequenceDiagram
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- Ability to log in securely via HTTPS
+- Ability to create leaderboards
+- Ability to submit scores to leaderboards
+- Ability to invite others with accounts to create leaderboards
+- Leaderboards stored and updated
 
 ### Technologies
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
-- **CSS** - Description here
+- **HTML** - Three different pages will be made with HTML: login, create leaderboard, view leaderboard
+- **CSS** - CSS will be used to make viewing the site pleasant with a good color scheme and images where needed.
 - **React** - Description here
 - **Service** - Description here
 - **DB/Login** - Description here
@@ -55,7 +54,7 @@ I am going to use the required technologies in the following ways.
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Server deployed and accessible with custom domain name** - [My server link](https://yourdomainnamehere.click).
+- [] **Server deployed and accessible with custom domain name** - [My server link](https://yourdomainnamehere.click).
 
 ## 🚀 HTML deliverable
 
