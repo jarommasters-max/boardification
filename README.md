@@ -32,7 +32,7 @@ sequenceDiagram
     User->>Server: Create Leaderboard
     Server->>User: Leaderboard Information
     Server->>Friend: Leaderboard Information
-    Server->>Friend: Leaderboard Score
+    Friend->>Server: Add Leaderboard Score
     Server->>Friend: Updated Leaderboard
     Server->>User: Updated Leaderboard
 ```
