@@ -26,9 +26,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ```mermaid
 sequenceDiagram
-    actor You
-    actor Website
-    Me->>Website: Replace this with your design
+    actor User
+    actor Friend
+    User->>Server: Login
+    Server->>User: Leaderboard Information
+    User->>Server: Create Leaderboard
+    Server->>Friend: Leaderboard Score
+    Server->>Friend: Updated Leaderboard
+    Server->>User: Updated Leaderboard
 ```
 
 ### Key features
