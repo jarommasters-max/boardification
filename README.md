@@ -1,4 +1,4 @@
-# Your startup name here
+# Boardification
 
 [My Notes](notes.md)
 
