@@ -2,7 +2,7 @@
 
 [My Notes](notes.md)
 
-A simple web application to turn anything quantifiable into a contest. Leaderboards can be created, titled, and have scores submitted to them by users. Boards can be opened and closed by users, and can be seen by anyone invited to the same board. The top three on the board will get a special notification of their victory when the board is closed.
+A simple web application to turn anything quantifiable into a contest. Leaderboards can be created, titled, and have scores submitted to them by users. Boards can be opened and closed by users, and can be seen by anyone invited to the same board.
 
 ## 🚀 Specification Deliverable
 
@@ -10,7 +10,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 - [ ] Proper use of Markdown
 - [x] A concise and compelling elevator pitch
-- [ ] Description of key features
+- [x] Description of key features
 - [ ] Description of how you will use each technology
 - [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
@@ -36,7 +36,7 @@ sequenceDiagram
 - Ability to log in securely via HTTPS
 - Ability to create leaderboards
 - Ability to submit scores to leaderboards
-- Ability to invite others with accounts to create leaderboards
+- Ability to invite others with accounts to join leaderboards
 - Leaderboards stored and updated
 
 ### Technologies
@@ -45,10 +45,14 @@ I am going to use the required technologies in the following ways.
 
 - **HTML** - Three different pages will be made with HTML: login, create leaderboard, view leaderboard
 - **CSS** - CSS will be used to make viewing the site pleasant with a good color scheme and images where needed.
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **React** - Will be used to allow logging in, creating leaderboards, submitting scores, and other user inputs.
+- **Service** - Will be used for:
+    - User login and fetching login information
+    - Storing and updating created leaderboards and submitted scores
+    - Retrieving leaderboard information
+    - 
+- **DB/Login** - Login information, user information, leaderboard data, etc stored in DB.
+- **WebSocket** - Leaderboards updated in real time with WebSocket.
 
 ## 🚀 AWS deliverable
 
