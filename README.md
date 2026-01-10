@@ -29,9 +29,9 @@ sequenceDiagram
     actor User
     actor Friend
     User->>Server: Login
+    User->>Server: Create Leaderboard
     Server->>User: Leaderboard Information
     Server->>Friend: Leaderboard Information
-    User->>Server: Create Leaderboard
     Server->>Friend: Leaderboard Score
     Server->>Friend: Updated Leaderboard
     Server->>User: Updated Leaderboard
