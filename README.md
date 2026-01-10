@@ -30,6 +30,7 @@ sequenceDiagram
     actor Friend
     User->>Server: Login
     Server->>User: Leaderboard Information
+    Server->>Friend: Leaderboard Information
     User->>Server: Create Leaderboard
     Server->>Friend: Leaderboard Score
     Server->>Friend: Updated Leaderboard
