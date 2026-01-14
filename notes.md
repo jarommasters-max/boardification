@@ -1,6 +1,7 @@
 # CS 260 Notes
 
-[My startup - Simon](https://simon.cs260.click)
+[Example startup - Simon](https://simon.cs260.click)
+[My actual startup](http://boardification.click)
 
 ## Helpful links
 
@@ -10,8 +11,8 @@
 
 ## AWS
 
-My IP address is: 54.81.96.130
-Launching my AMI I initially put it on a private subnet. Even though it had a public IP address and the security group was right, I wasn't able to connect to it.
+My IP address is: 3.229.125.231
+I had a hard time at first getting my IP address to work with the domain since I forgot to update the saved IP address after adding the elastic IP address. It works now, though.
 
 ## Caddy
 
