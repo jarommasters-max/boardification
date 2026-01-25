@@ -73,7 +73,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] **Proper HTML element usage** - I followed the conventions I saw in the examples, and I believe it is proper usage.
 - [x] **Links** - In the footer of each page, I included a link to my github repository. Additionally, at the top of each page I put a site map, containing links to all the other pages on the site.
 - [X] **Text** - Text is displayed on all pages, but it 
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
+- [x] **3rd party API placeholder** - On the about.html page, it has an inspirational quote. Since I can't think of any other good 3rd party API uses yet, for now I have a placeholder for an inspirational quote to help users feel motivated to win their leaderboards.
 - [x] **Images** - I designed a rough banner (that just says "boardification") and I applied it to the top of all pages. It is called board_logo.png.
 - [x] **Login placeholder** - In index.html, there is a login placeholder, with options for creating an account, or logging in with an email and password.
 - [x] **DB data placeholder** - In myboards.html, I made a set of tables that are examples of the leaderboards, which will be a large part of what I will be using the DB for.
