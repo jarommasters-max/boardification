@@ -72,7 +72,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] **HTML pages** - I created four pages: index.html, which contains the login portal; create.html, which will be the tool for creating leaderboards; myboards.html, which will contain the updating leaderboards the user has created; and about.html, which contains information about the application.
 - [x] **Proper HTML element usage** - I followed the conventions I saw in the examples, and I believe it is proper usage.
 - [x] **Links** - In the footer of each page, I included a link to my github repository. Additionally, at the top of each page I put a site map, containing links to all the other pages on the site.
-- [ ] **Text** - I did not complete this part of the deliverable.
+- [X] **Text** - Text is displayed on all pages, but it 
 - [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
 - [x] **Images** - I designed a rough banner (that just says "boardification") and I applied it to the top of all pages. It is called board_logo.png.
 - [x] **Login placeholder** - In index.html, there is a login placeholder, with options for creating an account, or logging in with an email and password.
