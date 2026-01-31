@@ -6,4 +6,17 @@
 header {
     display: flex;
     flex-direction: row;
+    margin: 0px;
+}
+
+.header-info {
+    display: flex;
+    flex-direction: column;
+    margin: 0px
+}
+
+menu {
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
 }
