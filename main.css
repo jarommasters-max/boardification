@@ -3,3 +3,12 @@
 }
 
 
+.top_bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.nav_menu {
+    
+}
