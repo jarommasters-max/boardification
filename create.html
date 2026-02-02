@@ -30,26 +30,26 @@
                     <li><a class="nav-link link-secondary" href="about.html">About</a></li>
                 </menu>
             </nav>
-
-            <div>
-                <span><b>Signed in as:</b></span>
-
-            </div>
         </header>
-        <span class="username_display">Logged in as: INSERT USERNAME HERE</span>
+            <div class="username_display">
+                <span><b>Signed in as:</b></span>
+                <span class="username">INSERT USERNAME HERE</span>
+            </div>
         <main>
         <h2>Create New Leaderboard:</h2>
         
         <form method="get" action="myboards.html">
             <div>
                 <span>Board Title:</span>
-                <input type="text" placeholder="ex: Milk Drinking"/>
+                <input type="text" class="form-control" placeholder="ex: Milk Drinking"/>
             </div>
             <div>
                 <span>Score Type:</span>
-                <input type="text" placeholder="ex: Litres of Milk"/>
+                <input type="text" class="form-control" placeholder="ex: Litres of Milk"/>
             </div>
+            <div class="buttons">
             <button type="submit" class="btn btn-outline-primary">Create Board</button>
+            </div>
         </form>
         </main>
         <footer>
