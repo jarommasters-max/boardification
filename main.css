@@ -1,3 +1,28 @@
 * {
-    font-family: "Roboto Condensed"
+    font-family: "Roboto Condensed";
+    box-sizing: border-box
 }
+
+header {
+    flex: 0 50px;
+    font-size: 20px;
+    background: blue;
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+/* menu {
+    flex: 0 20px;
+    font-size: 15px;
+    color: red;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    space-between: 10px
+} */
