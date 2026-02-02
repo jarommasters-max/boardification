@@ -76,6 +76,10 @@ td {
     overflow:hidden;
 }
 
+.small_col {
+    width: 40px;
+    text-align: center;
+}
 
 
 @media (max-height: 600px) {
