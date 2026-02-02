@@ -61,6 +61,22 @@ footer {
     padding: 1em
 }
 
+#quote {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    font-size: 20px
+}
+#quote:hover {
+    background-color: black;
+}
+
+#class_explination {
+    font-size:10px
+}
+
 @media (max-height: 600px) {
   header {
     display: none;
