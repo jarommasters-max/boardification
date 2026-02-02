@@ -65,10 +65,10 @@ footer {
     align-items: center;
 }
 
-.score_table {
+/* .score_table {
    display: grid;
    background-color: rgb(0, 84, 114);
-}
+} */
 
 
 @media (max-height: 600px) {
