@@ -20,7 +20,7 @@ header {
 }
 
 div {
-    padding: 1em
+    padding: 5px
 }
 
 /* menu {
@@ -54,7 +54,7 @@ main {
 }
 
 footer {
-    flex: 0 20px;
+    flex: 0 10px;
 
     display: flex;
     flex-direction: column;
