@@ -8,8 +8,9 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: left;
+    border-bottom: thick black solid;
     
-    /* background-color:rgb(61, 30, 20); */
+    background-color:rgb(37, 37, 37);
 }
 
 .nav_menu {
@@ -19,6 +20,7 @@
     justify-content: space-around;
 }
 
-.navigation_item {
-    padding: 0 1em
+.nav-link {
+    padding: 0 1em;
+    color: white
 }
