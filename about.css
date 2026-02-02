@@ -54,7 +54,7 @@ footer {
 
 }
 
-#explination {
+#explanation {
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -73,8 +73,14 @@ footer {
     background-color: black;
 }
 
-#class_explination {
+#class_explanation {
     font-size:10px
+}
+
+#admonition {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (max-height: 600px) {
