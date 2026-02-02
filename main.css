@@ -10,7 +10,7 @@ html {
 header {
     flex: 0 100px;
     font-size: 20px;
-    background: rgb(143, 140, 183);
+    background: rgb(46, 45, 58);
     /* color: rgb(226, 226, 226); */
 
     display: flex;
