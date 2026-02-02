@@ -33,6 +33,10 @@ body {
   color: white;
 }
 
+main {
+  flex: 1
+}
+
 footer {
     flex: 0 10px;
 
