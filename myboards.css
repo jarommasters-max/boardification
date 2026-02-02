@@ -59,6 +59,12 @@ footer {
 
 }
 
+.score_sub {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 
 @media (max-height: 600px) {
   header {
