@@ -86,9 +86,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] **Visually appealing colors and layout. No overflowing elements.** - I made sure that elements did not overflow, and I made sure that the colors looked appealing. I went with a nice dark blue, gray, and white color scheme. I think it looks nice.
 - [x] **Use of a CSS framework** - I made use of Bootstrap buttons, text-entry boxes, tables, and a navigation bar.
 - [x] **All visual elements styled using CSS** - Everything is at least styled with a font and color change via CSS.
-- [ ] **Responsive to window resizing using flexbox and/or grid display** - I did not complete this part of the deliverable.
+- [x] **Responsive to window resizing using flexbox and/or grid display** - I use flexboxes for a lot of things all over the site. At the bottom of each css file, I have an @media section to get rid of the navigation bar if the window is too small.
 - [x] **Use of a imported font** - I imported the Roboto Condensed font from Google and applied it to all my pages.
-- [ ] **Use of different types of selectors including element, class, ID, and pseudo selectors** - I did not complete this part of the deliverable.
+- [x] **Use of different types of selectors including element, class, ID, and pseudo selectors** - I make use of element and class selectors liberally on each page. On the about page, where I am working with more specific paragraphs to format, I use a lot of ID selectors. I also make use of the pseudo selector "hover" on that page, which colors the background of what will be the 3rd party quote supplier black.
 
 ## 🚀 React part 1: Routing deliverable
 
