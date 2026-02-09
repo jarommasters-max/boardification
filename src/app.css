@@ -34,7 +34,7 @@ div {
 } */
 
 
-body {
+.body {
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -44,7 +44,7 @@ body {
 }
 
 
-main {
+.main {
     flex: 1;
     font-size: 20px;
     display: flex;
