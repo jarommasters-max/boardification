@@ -5,6 +5,7 @@
 
 html {
   height: 100%;
+  margin: 0;
 }
 
 header {
@@ -15,6 +16,11 @@ header {
     flex-direction: column;
     justify-content: start;
     align-items: center;
+    width: 100%;
+}
+
+menu{
+  width: 100%
 }
 
 .nav{
@@ -34,6 +40,10 @@ div {
 }
 
 
+#root {
+  height: 100%;
+}
+
 .body {
   margin: 0;
   display: flex;
@@ -51,6 +61,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
 
 .buttons {
