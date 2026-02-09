@@ -6,7 +6,7 @@ export function Myboards() {
     <main>
         <h2>My Boards</h2>
 
-        <caption>Glasses of milk</caption>
+        <div>Glasses of milk</div>
         <table class="table table-bordered">
             <thead class="thead-dark">
             <tr>
@@ -44,7 +44,7 @@ export function Myboards() {
         </form>
 
         <hr/>
-        <caption>Miles Run in a Week</caption>
+        <div>Miles Run in a Week</div>
         <table class="table table-bordered">
             <thead class="thead-dark">
             <tr>
@@ -92,7 +92,7 @@ export function Myboards() {
         </form>
 
         <hr/>
-        <caption>Paper Cranes folded in an hour</caption>
+        <div>Paper Cranes folded in an hour</div>
         <table class="table table-bordered">
             <thead class="thead-dark">
             <tr>
