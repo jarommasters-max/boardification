@@ -1,24 +1,36 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { Login } from './login/login';
+import { Create } from './create/create';
+import { Myboards } from './myboards/myboards';
+import { About } from './about/about';
 
 export default function App() {
   return (
+    <BrowserRouter>
     <div className="body bg-dark text-light">
     <header>
         <nav className="navbar fixed-top">
             <menu className="nav">
-                <li><img src="board_logo.png" height="50"/></li>
-                <li><a className="nav-link link-primary" href="index.html">Home</a></li>
-                <li><a className="nav-link link-secondary" href="create.html">Create a Board</a></li>
-                <li><a className="nav-link link-secondary" href="myboards.html">My Boards</a></li>
-                <li><a className="nav-link link-secondary" href="about.html">About</a></li>
+                <li className="nav-item"><img src="board_logo.png" height="50"/></li>
+                <li className="nav-item"><NavLink className="nav-link link-primary" to="">Home</NavLink></li>
+                <li className="nav-item"><NavLink className="nav-link link-secondary" to="create">Create a Board</NavLink></li>
+                <li className="nav-item"><NavLink className="nav-link link-secondary" to="myboards">My Boards</NavLink></li>
+                <li className="nav-item"><NavLink className="nav-link link-secondary" to="about">About</NavLink></li>
             </menu>
         </nav>
         <hr/>
     </header>
 
-    <main>App components go here</main>
+    <Routes>
+    <Route path='/' element={<Login />} exact />
+    <Route path='/create' element={<Create />} />
+    <Route path='/myboards' element={<Myboards />} />
+    <Route path='/about' element={<About />} />
+    <Route path='*' element={<NotFound />} />
+    </Routes>
 
     <footer>
             <hr/>
@@ -26,5 +38,10 @@ export default function App() {
             <span><a href="https://github.com/jarommasters-max/boardification">GitHub Repository</a></span>
         </footer>
     </div>
+    </BrowserRouter>
   );
+}
+
+function NotFound() {
+  return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
 }
