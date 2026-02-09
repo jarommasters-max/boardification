@@ -11,27 +11,27 @@ header {
     flex: 0 90px;
     font-size: 15px;
     background: rgb(46, 45, 58);
-    /* color: rgb(226, 226, 226); */
-
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: start;
     align-items: center;
+}
+
+.nav{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;;
 }
 
 div {
     padding: 3px
 }
-
-/* menu { */
-    /* flex: 0 30px;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    flex-wrap: nowrap;
-} */
 
 
 .body {
@@ -44,13 +44,13 @@ div {
 }
 
 
-.main {
+main {
     flex: 1;
     font-size: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 }
 
 .buttons {
