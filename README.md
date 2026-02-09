@@ -94,9 +94,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Bundled using Vite** - I did not complete this part of the deliverable.
-- [ ] **Components** - I did not complete this part of the deliverable.
-- [ ] **Router** - I did not complete this part of the deliverable.
+- [x] **Bundled using Vite** - I did indeed bundle it with vite, and I made liberal use of the live view/stream feature while I was putting this deliverable together.
+- [x] **Components** - All of the components are represented here, in the new format. I made some adjustments to the CSS because some poor CSS decisions in the previous deliverable broke upon it being converted to this format, but I fixed them and everything is displaying properly now. I even made some fixes to the nav-bar scaling (as was suggested) and now I think it works much better.
+- [x] **Router** - The router is in the proper section of the app.jsx file, and it clearly is routing properly.
 
 ## 🚀 React part 2: Reactivity deliverable
 
