@@ -12,7 +12,7 @@ export default function App() {
     <BrowserRouter>
     <div className="body bg-dark text-light">
     <header>
-        <nav className="navbar fixed-top">
+        <nav className="navbar">
             <menu className="nav">
                 <li className="nav-item"><img src="board_logo.png" height="50"/></li>
                 <li className="nav-item"><NavLink className="nav-link link-primary" to="">Home</NavLink></li>
