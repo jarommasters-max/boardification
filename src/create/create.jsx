@@ -1,7 +1,7 @@
 import React from 'react';
 import "./create.css";
 
-export function Create() {
+export function Create({user}) {
   return (
     <main>
         <h2>Create New Leaderboard:</h2>
@@ -9,14 +9,14 @@ export function Create() {
         <form method="get" action="myboards.html">
             <div>
                 <span>Board Title:</span>
-                <input type="text" class="form-control" placeholder="ex: Milk Drinking"/>
+                <input type="text" className="form-control" placeholder="ex: Milk Drinking"/>
             </div>
             <div>
                 <span>Score Type:</span>
-                <input type="text" class="form-control" placeholder="ex: Litres of Milk"/>
+                <input type="text" className="form-control" placeholder="ex: Litres of Milk"/>
             </div>
-            <div class="buttons">
-            <button type="submit" class="btn btn-outline-primary">Create Board</button>
+            <div className="buttons">
+            <button type="submit" className="btn btn-outline-primary">Create Board</button>
             </div>
         </form>
         </main>

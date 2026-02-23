@@ -24,11 +24,12 @@ export default function App() {
         </nav>
         <hr/>
     </header>
+    {user && <p>Logged in as: {user}</p>}
 
     <Routes>
     <Route path='/' element={<Login getInfo={getInfo}/>} exact />
-    <Route path='/create' element={<Create />} />
-    <Route path='/myboards' element={<Myboards />} />
+    <Route path='/create' element={<Create user={user}/>} />
+    <Route path='/myboards' element={<Myboards/>} />
     <Route path='/about' element={<About />} />
     <Route path='*' element={<NotFound />} />
     </Routes>
