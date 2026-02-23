@@ -1,12 +1,22 @@
 import React from 'react';
 
 export function Login() {
-    const [userName, getUser] = React.useState("");
-    cost [password, getPassword] = React.useState("");
+    const [user, setUser] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    // const [userName, getUser] = React.useState("");
+    // cost [password, getPassword] = React.useState("");
 
     function loginUser() {
-        getUser()
-        console.log('login')
+        localStorage.setItem('username', user)
+        localStorage.setItem('password', password)
+    }
+
+    function getUser(txt) {
+        setUser(txt.target.value);
+    }
+
+    function getPassword(txt){
+        setPassword(txt.target.value);
     }
 
 
@@ -15,11 +25,11 @@ export function Login() {
         <h4>Login:</h4>
             <div>
                 <span>Email</span>
-                <input className="form-control" type="text" placeholder="exampleemail@examplemail.com"/>
+                <input className="form-control" type="text" placeholder="exampleemail@examplemail.com" onChange={getUser}/>
             </div>
             <div>
                 <span>Password</span>
-                <input className="form-control" type="text" placeholder="***********"/>
+                <input className="form-control" type="text" placeholder="***********" onChange={getPassword}/>
             </div>
             <div className="buttons">
             <button type="submit" className="btn btn-primary" onClick={loginUser}>Login</button>
