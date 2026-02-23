@@ -1,14 +1,15 @@
 import React from 'react';
 
-export function Login() {
+export function Login({getInfo}) {
     const [user, setUser] = React.useState('');
     const [password, setPassword] = React.useState('');
     // const [userName, getUser] = React.useState("");
     // cost [password, getPassword] = React.useState("");
 
     function loginUser() {
-        localStorage.setItem('username', user)
-        localStorage.setItem('password', password)
+        localStorage.setItem('username', user);
+        localStorage.setItem('password', password);
+        getInfo(user);
     }
 
     function getUser(txt) {

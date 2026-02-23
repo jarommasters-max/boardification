@@ -8,7 +8,7 @@ import { Myboards } from './myboards/myboards';
 import { About } from './about/about';
 
 export default function App() {
-  const [user, setUser] = React.useState(localStorage.getItem('username') || null);
+  const [user, getInfo] = React.useState(localStorage.getItem('username') || null);
   return (
     <BrowserRouter>
     <div className="body text-light">
@@ -26,7 +26,7 @@ export default function App() {
     </header>
 
     <Routes>
-    <Route path='/' element={<Login />} exact />
+    <Route path='/' element={<Login getInfo={getInfo}/>} exact />
     <Route path='/create' element={<Create />} />
     <Route path='/myboards' element={<Myboards />} />
     <Route path='/about' element={<About />} />
