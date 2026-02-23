@@ -1,23 +1,26 @@
 import React from 'react';
 
 export function Login() {
+    function loginUser() {
+        console.log('login')
+    }
+
+
   return (
     <main>
         <h4>Login:</h4>
-        <form method="get" action="myboards.html">
             <div>
                 <span>Email</span>
-                <input class="form-control" type="text" placeholder="exampleemail@examplemail.com"/>
+                <input className="form-control" type="text" placeholder="exampleemail@examplemail.com"/>
             </div>
             <div>
                 <span>Password</span>
-                <input class="form-control" type="test" placeholder="***********"/>
+                <input className="form-control" type="text" placeholder="***********"/>
             </div>
-            <div class="buttons">
-            <button type="submit" class="btn btn-primary">Login</button>
-            <button type="submit" class="btn btn-outline-secondary">Create Account</button>
+            <div className="buttons">
+            <button className="btn btn-primary" onClick={loginUser}>Login</button>
+            <button type="submit" className="btn btn-outline-secondary">Create Account</button>
             </div>
-        </form>
     </main>
   );
 }
