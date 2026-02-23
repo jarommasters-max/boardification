@@ -76,7 +76,7 @@ Setting up Vite and React was pretty simple. I had a bit of trouble because of c
 There are a lot of things to remember about react.
 
 TO DO:
-- create logout page for login page.
-- add ability to create leaderboard
-- add ability to add information to leaderboard
-- add quote-changing functionality to about page
+- [] create logout page for login page.
+- [] add ability to create leaderboard
+- [] add ability to add information to leaderboard
+- [] add quote-changing functionality to about page
