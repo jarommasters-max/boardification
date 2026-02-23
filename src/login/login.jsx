@@ -1,15 +1,17 @@
 import React from 'react';
+import {useNavigate} from 'react-router-dom';
 
 export function Login({getInfo}) {
     const [user, setUser] = React.useState('');
     const [password, setPassword] = React.useState('');
-    // const [userName, getUser] = React.useState("");
-    // cost [password, getPassword] = React.useState("");
+
+const navigate = useNavigate();
 
     function loginUser() {
         localStorage.setItem('username', user);
         localStorage.setItem('password', password);
         getInfo(user);
+        navigate('/myboards');
     }
 
     function getUser(txt) {
