@@ -8,6 +8,7 @@ import { Myboards } from './myboards/myboards';
 import { About } from './about/about';
 
 export default function App() {
+  const [user, setUser] = React.useState(localStorage.getItem('username') || null);
   return (
     <BrowserRouter>
     <div className="body text-light">
@@ -16,8 +17,8 @@ export default function App() {
             <menu className="nav">
                 <li className="nav-item"><img src="board_logo.png" height="50"/></li>
                 <li className="nav-item"><NavLink className="nav-link link-primary" to="">Home</NavLink></li>
-                <li className="nav-item"><NavLink className="nav-link link-secondary" to="create">Create a Board</NavLink></li>
-                <li className="nav-item"><NavLink className="nav-link link-secondary" to="myboards">My Boards</NavLink></li>
+                {user && <li className="nav-item"><NavLink className="nav-link link-secondary" to="create">Create a Board</NavLink></li>}
+                {user && <li className="nav-item"><NavLink className="nav-link link-secondary" to="myboards">My Boards</NavLink></li>}
                 <li className="nav-item"><NavLink className="nav-link link-secondary" to="about">About</NavLink></li>
             </menu>
         </nav>
