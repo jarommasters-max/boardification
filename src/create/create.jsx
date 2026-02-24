@@ -1,15 +1,16 @@
 import React from 'react';
 import "./create.css";
 
-export function Create({user}) {
+export function Create({user}) { // ADD IN THE FUNCTION YOU JUST MADE
     const [category, setCategory] = React.useState('');
     const [scoreType, setScoreType] = React.useState('');
 
-    function makeNewBoard(cat, scr){
+    function makeNewBoard(cat, scr, user){
         const newBoard = {
             title: cat,
             typeScore: scr,
-            users: [],
+            owner: user,
+            users: [user],
             scores: {}
         }
         return (newBoard);
@@ -17,10 +18,9 @@ export function Create({user}) {
 
 
     function createBoard(){
-        console.log(category);
-        console.log(scoreType);
-        const newBoard = makeNewBoard(category, scoreType);
-        console.log(newBoard);
+        const newBoard = makeNewBoard(category, scoreType, user);
+        //SAVE IT TO LOCAL STORAGE, THEN HAVE CALL THE SET FUNCTION!!!
+        // Now I need to get the dang thing to give this board back to the main function, then update the board list.
     }
 
     function getCategory(txt){

@@ -9,6 +9,19 @@ import { About } from './about/about';
 
 export default function App() {
   const [user, getInfo] = React.useState(localStorage.getItem('username') || null);
+  const [tempBoard, setTempBoard] = React.useState(localStorage.getItem('newboard') || null);
+  const allBoards = {}
+  //This may not need to be there
+  function makeNewBoard(cat, scr, user){
+        const newBoard = {
+            title: cat,
+            typeScore: scr,
+            owner: user,
+            users: [user],
+            scores: {}
+        }
+        return (newBoard);
+    }
   return (
     <BrowserRouter>
     <div className="body text-light">
@@ -28,7 +41,7 @@ export default function App() {
 
     <Routes>
     <Route path='/' element={<Login getInfo={getInfo}/>} exact />
-    <Route path='/create' element={<Create user={user}/>} />
+    <Route path='/create' element={<Create user={user} setTempBoard={setTempBoard}/>} />
     <Route path='/myboards' element={<Myboards/>} />
     <Route path='/about' element={<About />} />
     <Route path='*' element={<NotFound />} />
