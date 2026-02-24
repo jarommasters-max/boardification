@@ -1,17 +1,26 @@
 import React from 'react';
 import "./create.css";
-import Board from "./board.jsx";
 
 export function Create({user}) {
     const [category, setCategory] = React.useState('');
     const [scoreType, setScoreType] = React.useState('');
 
+    function makeNewBoard(cat, scr){
+        const newBoard = {
+            title: cat,
+            typeScore: scr,
+            users: [],
+            scores: {}
+        }
+        return (newBoard);
+    }
+
 
     function createBoard(){
         console.log(category);
         console.log(scoreType);
-        const newBoard = new Board(category, scoreType);
-        console.log(newBoard.cat);
+        const newBoard = makeNewBoard(category, scoreType);
+        console.log(newBoard);
     }
 
     function getCategory(txt){
