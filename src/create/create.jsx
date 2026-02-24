@@ -2,20 +2,31 @@ import React from 'react';
 import "./create.css";
 
 export function Create({user}) {
-    const [catrgory, setCategory] = React.useState('');
+    const [category, setCategory] = React.useState('');
     const [scoreType, setScoreType] = React.useState('');
 
 
     function createBoard(){
-        
+        console.log(category);
+        console.log(scoreType);
+        const board = {
+            cat: category,
+            scrType: scoreType,
+            positions: [],
+            users: [],
+            
+
+
+
+        }
     }
 
-    function getCategory(){
+    function getCategory(txt){
         setCategory(txt.target.value);
         
     }
 
-    function getScoreType(){
+    function getScoreType(txt){
         setScoreType(txt.target.value);
     }
 
@@ -23,7 +34,6 @@ export function Create({user}) {
     <main>
         <h2>Create New Leaderboard:</h2>
         
-        <form method="get" action="myboards.html">
             <div>
                 <span>Board Title:</span>
                 <input type="text" className="form-control" placeholder="ex: Milk Drinking" onChange={getCategory}/>
@@ -35,7 +45,6 @@ export function Create({user}) {
             <div className="buttons">
             <button type="submit" className="btn btn-outline-primary" onClick={createBoard}>Create Board</button>
             </div>
-        </form>
         </main>
   );
 }
