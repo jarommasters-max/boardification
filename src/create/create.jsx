@@ -9,16 +9,7 @@ export function Create({user}) {
     function createBoard(){
         console.log(category);
         console.log(scoreType);
-        const board = {
-            cat: category,
-            scrType: scoreType,
-            positions: [],
-            users: [],
-            
-
-
-
-        }
+        console.log(Object.keys(board));
     }
 
     function getCategory(txt){
