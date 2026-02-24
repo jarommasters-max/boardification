@@ -1,6 +1,6 @@
 import React from 'react';
 import "./create.css";
-import "./board.jsx"
+import Board from "./board.jsx";
 
 export function Create({user}) {
     const [category, setCategory] = React.useState('');
@@ -10,7 +10,8 @@ export function Create({user}) {
     function createBoard(){
         console.log(category);
         console.log(scoreType);
-        newBoard = new Board(category, scoreType)
+        const newBoard = new Board(category, scoreType);
+        console.log(newBoard.cat);
     }
 
     function getCategory(txt){
