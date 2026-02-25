@@ -1,8 +1,17 @@
 import React from 'react';
 
-export function MakeBoardTables({board}) {
+export function MakeBoardTables({board, addScore}) {
     
-    const boardScores = Object.entries(board.scores || [["No scores yet!", "0" ]]);
+    const boardScores = Object.entries(board.scores || {}).sort((a, b) => b[1] - a[1]);;
+    const [scoreToAdd, setScoreToAdd] = React.useState()
+    
+    function getUserAddedScore(txt){
+        setScoreToAdd(txt.target.value)
+    }
+
+    function preAddScore(){
+        
+    }
 
     return (
         <main>
@@ -17,9 +26,9 @@ export function MakeBoardTables({board}) {
             </thead>
             <tbody>
                 {
-                    boardScores.map(([scrUser, scr]) => (
+                    boardScores.map(([scrUser, scr], i) => (
                         <tr key={scrUser}>
-                            <th scope="row" className="small_col">1</th>
+                            <th scope="row" className="small_col">{i}</th>
                             <td>{scrUser}</td>
                             <td>{scr}</td>
                         </tr>
@@ -27,6 +36,15 @@ export function MakeBoardTables({board}) {
                 }
             </tbody>
         </table>
+        <form method="get">
+        <div class="score_sub">
+            <span>Submit Score:</span>
+            <input type="text" class="form-control" placeholder="Score" onChange={getUserAddedScore}/>
+        </div>
+        <div class="buttons">
+        <button type="submit" class="btn btn-outline-primary" onClick={preAddScore}>Submit Score</button>
+        </div>
+        </form>
         </main>
     );
 }
