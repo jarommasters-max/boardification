@@ -1,7 +1,7 @@
 import React from 'react';
 import "./create.css";
 
-export function Create({user,setTempBoard}) {
+export function Create({user,setTempBoard,setAllBoards}) {
     const [category, setCategory] = React.useState('');
     const [scoreType, setScoreType] = React.useState('');
 
@@ -20,10 +20,9 @@ export function Create({user,setTempBoard}) {
 
     function createBoard(){
         const newBoard = makeNewBoard(category, scoreType, user);
-        localStorage.setItem('tempBoard', newBoard);
-        console.log(newBoard.id)
-        // Now I need to get the dang thing to give this board back to the main function, then update the board list.
+        // localStorage.setItem('tempBoard', newBoard);
         setTempBoard(newBoard);
+        setAllBoards(prev => ({...prev, [newBoard.id]: newBoard}));
     }
 
     function getCategory(txt){

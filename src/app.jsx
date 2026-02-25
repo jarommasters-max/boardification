@@ -9,9 +9,10 @@ import { About } from './about/about';
 
 export default function App() {
   const [user, getInfo] = React.useState(localStorage.getItem('username') || null);
-  const [tempBoard, setTempBoard] = React.useState(localStorage.getItem('newboard') || null);
+  const [tempBoard, setTempBoard] = React.useState();
   // const allBoards = {}
-  const [allBoards, setAllBoards] = useState({})
+  const [allBoards, setAllBoards] = React.useState({})
+  console.log(allBoards)
   //This may not need to be there
   // function makeNewBoard(cat, scr, user){
   //       const newBoard = {
@@ -47,7 +48,7 @@ export default function App() {
 
     <Routes>
     <Route path='/' element={<Login getInfo={getInfo}/>} exact />
-    <Route path='/create' element={<Create user={user} setTempBoard={setTempBoard}/>} />
+    <Route path='/create' element={<Create user={user} setTempBoard={setTempBoard} setAllBoards={setAllBoards}/>} />
     <Route path='/myboards' element={<Myboards/>} />
     <Route path='/about' element={<About />} />
     <Route path='*' element={<NotFound />} />
