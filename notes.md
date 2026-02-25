@@ -84,6 +84,9 @@ One thing is React.useState().
 An object/array in local storage
 - Objects and arrays can't be stored in local storage as objects and arrays. They must be passed into JSON.stringify() to save it as a JSON file. To convert back, pass it through JSON.parse()
 
+.map:
+- .map() is a very useful function that takes all the objects in an array and applies the same function to all of them and returns them again in an array. For my project, I will be passing an array of allBoards.values through it, and I will create an array of leaderboards and buttons. This will allow for my page to take all the boards, assemble them into tables, and then print them all out onto the page.
+
 
 TO DO:
 - [ ] create logout page for login page.
