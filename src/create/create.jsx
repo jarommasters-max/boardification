@@ -20,7 +20,6 @@ export function Create({user,setTempBoard,setAllBoards}) {
 
     function createBoard(){
         const newBoard = makeNewBoard(category, scoreType, user);
-        // localStorage.setItem('tempBoard', newBoard);
         setTempBoard(newBoard);
         setAllBoards(prev => ({...prev, [newBoard.id]: newBoard}));
     }
