@@ -2,7 +2,7 @@ import React from 'react';
 import "./create.css";
 import {useNavigate} from 'react-router-dom';
 
-export function Create({user,setTempBoard,setAllBoards}) {
+export function Create({user,setTempBoard,setAllBoards,allBoards}) {
     const [category, setCategory] = React.useState('');
     const [scoreType, setScoreType] = React.useState('');
 
@@ -24,7 +24,9 @@ export function Create({user,setTempBoard,setAllBoards}) {
     function createBoard(){
         const newBoard = makeNewBoard(category, scoreType, user);
         setTempBoard(newBoard);
-        setAllBoards(prev => ({...prev, [newBoard.id]: newBoard}));
+        const updatedBoardSet = {...allBoards, [newBoard.id]: newBoard}
+        setAllBoards(updatedBoardSet);
+        localStorage.setItem('allBoards', JSON.stringify(updatedBoardSet));
         navigate('/myboards');
     }
 

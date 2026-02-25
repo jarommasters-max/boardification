@@ -10,7 +10,7 @@ import { About } from './about/about';
 export default function App() {
   const [user, getInfo] = React.useState(localStorage.getItem('username') || null);
   const [tempBoard, setTempBoard] = React.useState();
-  const [allBoards, setAllBoards] = React.useState({})
+  const [allBoards, setAllBoards] = React.useState(JSON.parse(localStorage.getItem('allBoards')) || {})
   console.log(allBoards)
 
 
@@ -33,7 +33,7 @@ export default function App() {
 
     <Routes>
     <Route path='/' element={<Login getInfo={getInfo}/>} exact />
-    <Route path='/create' element={<Create user={user} setTempBoard={setTempBoard} setAllBoards={setAllBoards}/>} />
+    <Route path='/create' element={<Create user={user} setTempBoard={setTempBoard} setAllBoards={setAllBoards} allBoards={allBoards}/>} />
     <Route path='/myboards' element={<Myboards/>} />
     <Route path='/about' element={<About />} />
     <Route path='*' element={<NotFound />} />
