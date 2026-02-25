@@ -1,9 +1,12 @@
 import React from 'react';
 import "./create.css";
+import {useNavigate} from 'react-router-dom';
 
 export function Create({user,setTempBoard,setAllBoards}) {
     const [category, setCategory] = React.useState('');
     const [scoreType, setScoreType] = React.useState('');
+
+    const navigate = useNavigate();
 
     function makeNewBoard(cat, scr, user){
         const newBoard = {
@@ -22,6 +25,7 @@ export function Create({user,setTempBoard,setAllBoards}) {
         const newBoard = makeNewBoard(category, scoreType, user);
         setTempBoard(newBoard);
         setAllBoards(prev => ({...prev, [newBoard.id]: newBoard}));
+        navigate('/myboards');
     }
 
     function getCategory(txt){
