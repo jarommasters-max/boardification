@@ -2,7 +2,7 @@ import React from 'react';
 
 export function MakeBoardTables({board}) {
     
-    const scores = Object.entries(board.scores);
+    const boardScores = Object.entries(board.scores);
 
     return (
         <main>
@@ -16,11 +16,15 @@ export function MakeBoardTables({board}) {
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row" class="small_col">1</th>
-                <td>Bobber78</td>
-                <td>15</td>
-            </tr>
+                {
+                    boardScores.map(([scrUser, scr]) => (
+                        <tr>
+                            <th scope="row" class="small_col">1</th>
+                            <td>{scrUser}</td>
+                            <td>{scr}</td>
+                        </tr>
+                    ))
+                }
             </tbody>
         </table>
         </main>
