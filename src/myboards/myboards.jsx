@@ -1,7 +1,8 @@
 import React from 'react';
-import "./myboards.css"
+import "./myboards.css";
+import {MakeBoardTables} from './makeboardtables.jsx';
 
-export function Myboards() { //send in some list of all boards a person is a part of.
+export function Myboards(allBoards) { //send in some list of all boards a person is a part of.
     // create function to async create a board from an array.
     
 
@@ -9,7 +10,9 @@ export function Myboards() { //send in some list of all boards a person is a par
   return (
     <main>
         <h2>My Boards</h2>
-        {/* have it create boards for every item on the list. */}
+        {Object.values(allBoards).map((board) => (
+          <MakeBoardTables key={board.id} board={board} />
+        ))}
     </main>
   );
 }

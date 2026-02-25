@@ -35,7 +35,7 @@ export default function App() {
     <Routes>
     <Route path='/' element={<Login getInfo={getInfo}/>} exact />
     <Route path='/create' element={<Create user={user} setTempBoard={setTempBoard} setAllBoards={setAllBoards} allBoards={allBoards}/>} />
-    <Route path='/myboards' element={<Myboards/>} />
+    <Route path='/myboards' element={<Myboards allBoards={allBoards}/>} />
     <Route path='/about' element={<About />} />
     <Route path='*' element={<NotFound />} />
     </Routes>
