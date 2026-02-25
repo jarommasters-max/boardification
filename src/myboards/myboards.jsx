@@ -3,8 +3,7 @@ import "./myboards.css"
 
 export function Myboards() { //send in some list of all boards a person is a part of.
     // create function to async create a board from an array.
-    const myBoards = [
-    ]
+    
 
 
   return (

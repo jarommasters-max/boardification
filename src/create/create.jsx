@@ -2,7 +2,7 @@ import React from 'react';
 import "./create.css";
 import {useNavigate} from 'react-router-dom';
 
-export function Create({user,setTempBoard,setAllBoards,allBoards}) {
+export function Create({user,setTempBoard,setAllBoards,allBoards}) { //remove all the tempboard stuff. It's no longer needed.
     const [category, setCategory] = React.useState('');
     const [scoreType, setScoreType] = React.useState('');
 

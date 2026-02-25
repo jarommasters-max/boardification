@@ -9,9 +9,8 @@ import { About } from './about/about';
 
 export default function App() {
   const [user, getInfo] = React.useState(localStorage.getItem('username') || null);
-  const [tempBoard, setTempBoard] = React.useState();
+  const [tempBoard, setTempBoard] = React.useState(); //Seems unnecessary now
   const [allBoards, setAllBoards] = React.useState(JSON.parse(localStorage.getItem('allBoards')) || {})
-  console.log(allBoards)
 
 
   return (
