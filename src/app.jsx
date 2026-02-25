@@ -10,18 +10,24 @@ import { About } from './about/about';
 export default function App() {
   const [user, getInfo] = React.useState(localStorage.getItem('username') || null);
   const [tempBoard, setTempBoard] = React.useState(localStorage.getItem('newboard') || null);
-  const allBoards = {}
+  // const allBoards = {}
+  const [allBoards, setAllBoards] = useState({})
   //This may not need to be there
-  function makeNewBoard(cat, scr, user){
-        const newBoard = {
-            title: cat,
-            typeScore: scr,
-            owner: user,
-            users: [user],
-            scores: {}
-        }
-        return (newBoard);
-    }
+  // function makeNewBoard(cat, scr, user){
+  //       const newBoard = {
+  //           title: cat,
+  //           typeScore: scr,
+  //           owner: user,
+  //           users: [user],
+  //           scores: {}
+  //       }
+  //       return (newBoard);
+  //   }
+  // function setTempBoard(tempBoard){
+  //   setTempBoard(tempBoard);
+  //   setAllBoards(prev => [...prev, tempBoard])
+  // };
+
   return (
     <BrowserRouter>
     <div className="body text-light">

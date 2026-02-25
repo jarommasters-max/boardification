@@ -75,6 +75,16 @@ Setting up Vite and React was pretty simple. I had a bit of trouble because of c
 
 There are a lot of things to remember about react.
 
+One thing is React.useState().
+- React.useState() returns an array containing two variables:
+  - The item to which it's state is set
+  - A function that updates its state.
+    - When it updates the item, it schedules a re-render for all components that the item is a part of.
+
+An object/array in local storage
+- Objects and arrays can't be stored in local storage as objects and arrays. They must be passed into JSON.stringify() to save it as a JSON file. To convert back, pass it through JSON.parse()
+
+
 TO DO:
 - [ ] create logout page for login page.
 - [ ] add ability to create leaderboard
@@ -82,3 +92,4 @@ TO DO:
 - [ ] add quote-changing functionality to about page
 My thoughts at the moment are that I want to use the createboard page to create a board object, containing the category, score type, the list of allowed users, and lastly the list of scores. This will then be passed out of the createboard page and be added to a global map of leaderboards (which can be unpacked based on the users list of leaderboards they are a part of).
 Something I will need to do is also add more functionality to leaderboards (such as the owner of a board being able to delete the board). I will also need to 
+
