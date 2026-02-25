@@ -11,6 +11,8 @@ export default function App() {
   const [user, getInfo] = React.useState(localStorage.getItem('username') || null);
   const [tempBoard, setTempBoard] = React.useState(); //Seems unnecessary now
   const [allBoards, setAllBoards] = React.useState(JSON.parse(localStorage.getItem('allBoards')) || {})
+  // In the future, I will have the user data also associated with the boards they have. An object with the username, password,
+  // and a list of IDs for the boards they are a part of, so that create.jsx could easily assemble a user-specific list of boards.
 
 
   return (
