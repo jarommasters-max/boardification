@@ -2,7 +2,7 @@ import React from 'react';
 import "./myboards.css";
 import {MakeBoardTables} from './makeboardtables.jsx';
 
-export function Myboards(allBoards) { //send in some list of all boards a person is a part of.
+export function Myboards({allBoards}) { //send in some list of all boards a person is a part of.
     // create function to async create a board from an array.
     
 

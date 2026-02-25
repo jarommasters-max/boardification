@@ -11,14 +11,14 @@ export function MakeBoardTables({board}) {
             <thead className="thead-dark">
             <tr>
                 <th scope="col"  className="small_col">#</th>
-                <th scope="col">{board.title}</th>
+                <th scope="col">Name</th>
                 <th scope="col">{board.typeScore}</th>
             </tr>
             </thead>
             <tbody>
                 {
                     boardScores.map(([scrUser, scr]) => (
-                        <tr>
+                        <tr key={scrUser}>
                             <th scope="row" className="small_col">1</th>
                             <td>{scrUser}</td>
                             <td>{scr}</td>
