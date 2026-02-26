@@ -1,7 +1,7 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
 
-export function NotLoggedIn({getUser,getPassword,loginUser}){
+export function NotLoggedIn({getUser,getPassword,loginUser,register}){
 return(
 <main>
         <h4>Login:</h4>
@@ -15,7 +15,7 @@ return(
             </div>
             <div className="buttons">
             <button type="submit" className="btn btn-primary" onClick={loginUser}>Login</button>
-            <button type="submit" className="btn btn-outline-secondary">Create Account</button>
+            <button type="submit" className="btn btn-outline-secondary" onClick={register}>Create Account</button>
             </div>
     </main>
 )

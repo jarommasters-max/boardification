@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import {NotLoggedIn} from './notloggedin.jsx';
 import {LoggedIn} from './loggedin.jsx'
 
-export function Login({getInfo, setAllUsers}) {
+export function Login({getInfo, setAllUsers, allUsers}) {
     const [user, setUser] = React.useState('');
     const [password, setPassword] = React.useState('');
 
@@ -29,7 +29,7 @@ const navigate = useNavigate();
     }
 
     function buildUser(user, password){
-        newUser = {
+        const newUser = {
             username: user,
             pswrd: password,
             ownedBoards: [],
@@ -39,10 +39,15 @@ const navigate = useNavigate();
     }
 
     function addNewUser(){
-        newUser = buildUser(user, password);
-        const updatedUserSet = {...allUsers, [username]: newUser};
+        const newUser = buildUser(user, password);
+        const updatedUserSet = {...allUsers, [user]: newUser};
         setAllUsers(updatedUserSet);
         localStorage.setItem('allUsers', JSON.stringify(updatedUserSet));
+    }
+
+    function register(){
+        addNewUser();
+        loginUser();
     }
 
     if (true){
@@ -62,7 +67,7 @@ const navigate = useNavigate();
             <button type="submit" className="btn btn-outline-secondary">Create Account</button>
             </div> */}
 
-        <NotLoggedIn getUser={getUser} getPassword={getPassword} loginUser={loginUser}/>
+        <NotLoggedIn getUser={getUser} getPassword={getPassword} loginUser={loginUser} register={register}/>
     </main>
 
     
