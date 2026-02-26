@@ -12,7 +12,6 @@ export function MakeBoardTables({user, board, addScore}) {
     function preAddScore(allBoards){
         const boardId = board.id;
         addScore(boardId, user, scoreToAdd)
-        //handle the scoreToAdd, call and pass it to addScore
     }
 
     return (
