@@ -15,6 +15,7 @@ const navigate = useNavigate();
         localStorage.setItem('password', password); //remove this soon
         getInfo(user);
         setLoggedInUser(true)
+        localStorage.setItem('loggedInUser', JSON.stringify(true))
         navigate('/myboards');
         return;
         };
@@ -60,6 +61,10 @@ const navigate = useNavigate();
     function register(){
         addNewUser();
         loginUser();
+    }
+
+    function signOut(){
+        
     }
 
     if (loggedInUser === false){
