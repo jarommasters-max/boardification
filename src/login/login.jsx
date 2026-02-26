@@ -1,5 +1,6 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
+import {NotLoggedIn} from './notloggedin.jsx';
 
 export function Login({getInfo}) {
     const [user, setUser] = React.useState('');
@@ -22,14 +23,14 @@ const navigate = useNavigate();
         setPassword(txt.target.value);
     }
 
-    function checkPassword(){
-        
-    }
+    // function checkPassword(){
+
+    // }
 
 
   return (
     <main>
-        <h4>Login:</h4>
+        {/* <h4>Login:</h4>
             <div>
                 <span>Email</span>
                 <input className="form-control" type="text" placeholder="exampleemail@examplemail.com" onChange={getUser}/>
@@ -41,7 +42,9 @@ const navigate = useNavigate();
             <div className="buttons">
             <button type="submit" className="btn btn-primary" onClick={loginUser}>Login</button>
             <button type="submit" className="btn btn-outline-secondary">Create Account</button>
-            </div>
+            </div> */}
+
+        <NotLoggedIn getUser={getUser} getPassword={getPassword} loginUser={loginUser} setUser={setUser} setPassword={setPassword}/>
     </main>
   );
-}
+};
