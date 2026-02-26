@@ -22,6 +22,10 @@ const navigate = useNavigate();
         setPassword(txt.target.value);
     }
 
+    function checkPassword(){
+        
+    }
+
 
   return (
     <main>
