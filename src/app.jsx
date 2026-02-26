@@ -33,7 +33,6 @@ export default function App() {
         </nav>
         <hr/>
     </header>
-    {user && <p>Logged in as: {user}</p>}
 
     <Routes>
     <Route path='/' element={<Login getInfo={getInfo} setAllUsers={setAllUsers} allUsers={allUsers} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} exact />

@@ -20,6 +20,7 @@ export function Myboards({user, allBoards, setAllBoards}) {
 
   return (
     <main>
+      {user && <p>Logged in as: {user}</p>}
         <h2>My Boards</h2>
         {Object.values(allBoards).map((board) => (
           <MakeBoardTables key={board.id} user={user} board={board} addScore={addScore}/>

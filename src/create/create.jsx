@@ -41,6 +41,7 @@ export function Create({user,setTempBoard,setAllBoards,allBoards}) { //remove al
 
   return (
     <main>
+    {user && <p>Logged in as: {user}</p>}
         <h2>Create New Leaderboard:</h2>
         
             <div>
