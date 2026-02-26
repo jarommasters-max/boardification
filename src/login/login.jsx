@@ -23,11 +23,11 @@ const navigate = useNavigate();
         setPassword(txt.target.value);
     }
 
-    // function checkPassword(){
+    function passwordChecks(){
+        //check password to see if it is valid and associated with that user.
+    }
 
-    // }
-
-
+    if (true){
   return (
     <main>
         {/* <h4>Login:</h4>
@@ -44,7 +44,9 @@ const navigate = useNavigate();
             <button type="submit" className="btn btn-outline-secondary">Create Account</button>
             </div> */}
 
-        <NotLoggedIn getUser={getUser} getPassword={getPassword} loginUser={loginUser} setUser={setUser} setPassword={setPassword}/>
+        <NotLoggedIn getUser={getUser} getPassword={getPassword} loginUser={loginUser}/>
     </main>
+    
   );
+  };
 };
