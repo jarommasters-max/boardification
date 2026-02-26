@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import {NotLoggedIn} from './notloggedin.jsx';
 import {LoggedIn} from './loggedin.jsx'
 
-export function Login({getInfo, setAllUsers, allUsers}) {
+export function Login({getInfo, setAllUsers, allUsers, loggedInUser, setLoggedInUser}) {
     const [user, setUser] = React.useState('');
     const [password, setPassword] = React.useState('');
 
@@ -14,6 +14,7 @@ const navigate = useNavigate();
         localStorage.setItem('username', user);
         localStorage.setItem('password', password); //remove this soon
         getInfo(user);
+        setLoggedInUser(true)
         navigate('/myboards');
         return;
         };
@@ -61,7 +62,7 @@ const navigate = useNavigate();
         loginUser();
     }
 
-    if (true){
+    if (loggedInUser === false){
     return (
     <main>
         <NotLoggedIn getUser={getUser} getPassword={getPassword} loginUser={loginUser} register={register}/>
@@ -70,7 +71,7 @@ const navigate = useNavigate();
     
   );
   };
-    if (false){
+    if (loggedInUser === true){
         return (
             <main>
                 <LoggedIn/>

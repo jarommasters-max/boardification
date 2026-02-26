@@ -12,6 +12,7 @@ export default function App() {
   const [tempBoard, setTempBoard] = React.useState(); //Seems unnecessary now
   const [allBoards, setAllBoards] = React.useState(JSON.parse(localStorage.getItem('allBoards')) || {});
   const [allUsers, setAllUsers] = React.useState(JSON.parse(localStorage.getItem('allUsers')) || {});
+  const [loggedInUser, setLoggedInUser] = React.useState(false);
   console.log(allUsers);
   // In the future, I will have the user data also associated with the boards they have. An object with the username, password,
   // and a list of IDs for the boards they are a part of, so that create.jsx could easily assemble a user-specific list of boards.
@@ -35,7 +36,7 @@ export default function App() {
     {user && <p>Logged in as: {user}</p>}
 
     <Routes>
-    <Route path='/' element={<Login getInfo={getInfo} setAllUsers={setAllUsers} allUsers={allUsers}/>} exact />
+    <Route path='/' element={<Login getInfo={getInfo} setAllUsers={setAllUsers} allUsers={allUsers} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} exact />
     <Route path='/create' element={<Create user={user} setTempBoard={setTempBoard} setAllBoards={setAllBoards} allBoards={allBoards}/>} />
     <Route path='/myboards' element={<Myboards user={user} allBoards={allBoards} setAllBoards={setAllBoards}/>} />
     <Route path='/about' element={<About />} />
