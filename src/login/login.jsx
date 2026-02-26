@@ -24,8 +24,11 @@ const navigate = useNavigate();
         setPassword(txt.target.value);
     }
 
-    function passwordChecks(){
-        //check password to see if it is valid and associated with that user.
+    function passwordChecks(user, password){
+        if(allUsers[user].pswrd = password){
+            return true;
+        };
+        return false;
     }
 
     function buildUser(user, password){
