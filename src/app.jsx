@@ -43,8 +43,8 @@ export default function App() {
 
     <Routes>
     <Route path='/' element={<Login getInfo={getInfo} setAllUsers={setAllUsers} allUsers={allUsers} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} exact />
-    <Route path='/create' element={<Create user={user} setTempBoard={setTempBoard} setAllBoards={setAllBoards} allBoards={allBoards} setAllUsers={setAllUsers} allUsers={allUsers}/>} />
-    <Route path='/myboards' element={<Myboards user={user} allBoards={allBoards} setAllBoards={setAllBoards}/>} />
+    <Route path='/create' element={<Create user={user} setTempBoard={setTempBoard} setAllBoards={setAllBoards} allBoards={allBoards} setAllUsers={setAllUsers} allUsers={allUsers} loggedInUser={loggedInUser}/>} />
+    <Route path='/myboards' element={<Myboards user={user} allBoards={allBoards} setAllBoards={setAllBoards} loggedInUser={loggedInUser}/>} />
     <Route path='/about' element={<About />} />
     <Route path='*' element={<NotFound />} />
     </Routes>

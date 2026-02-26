@@ -2,12 +2,14 @@ import React from 'react';
 import "./create.css";
 import {useNavigate} from 'react-router-dom';
 
-export function Create({user,setTempBoard,setAllBoards,allBoards, setAllUsers, allUsers}) { //remove all the tempboard stuff. It's no longer needed.
+export function Create({user,setTempBoard,setAllBoards,allBoards, setAllUsers, allUsers, loggedInUser}) { //remove all the tempboard stuff. It's no longer needed.
+    
     const [category, setCategory] = React.useState('');
     const [scoreType, setScoreType] = React.useState('');
 
     const navigate = useNavigate();
-
+    
+    if (loggedInUser){
     function makeNewBoard(cat, scr, user){
         const newBoard = {
             id: crypto.randomUUID(),
@@ -57,4 +59,17 @@ export function Create({user,setTempBoard,setAllBoards,allBoards, setAllUsers, a
             </div>
         </main>
   );
+}
+else {
+    function returnToLogin(){
+        navigate('/')
+    }
+    return(
+    <main>
+    <h1>You must be logged in to access this page</h1>
+    <button type="submit" className="btn btn-outline-primary" onClick={returnToLogin}>Click Here to Return to Login</button>
+    </main>
+    );
+    
+};
 }

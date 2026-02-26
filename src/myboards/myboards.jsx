@@ -1,10 +1,13 @@
 import React from 'react';
 import "./myboards.css";
 import {MakeBoardTables} from './makeboardtables.jsx';
+import {useNavigate} from 'react-router-dom';
 
-export function Myboards({user, allBoards, setAllBoards}) {
+export function Myboards({user, allBoards, setAllBoards, loggedInUser}) {
+  const navigate = useNavigate();
+
   const [scoreToAdd, setScoreToAdd] = React.useState() //I don't know if this should be here, or just in the makeboardtables file. :\ hm...
-
+  if (loggedInUser){
   function addScore(boardId, user, scoreToAdd){
     //Note for the future, this will eventually need to be a promise once this is pulling from a shared database.
     setAllBoards(prev => {
@@ -27,4 +30,17 @@ export function Myboards({user, allBoards, setAllBoards}) {
         ))}
     </main>
   );
+}
+else {
+    function returnToLogin(){
+        navigate('/')
+    }
+    return(
+    <main>
+    <h1>You must be logged in to access this page</h1>
+    <button type="submit" className="btn btn-outline-primary" onClick={returnToLogin}>Click Here to Return to Login</button>
+    </main>
+    );
+    
+};
 }
