@@ -11,7 +11,7 @@ const navigate = useNavigate();
 
     function loginUser() {
         localStorage.setItem('username', user);
-        localStorage.setItem('password', password);
+        localStorage.setItem('password', password); //remove this soon
         getInfo(user);
         navigate('/myboards');
     }
@@ -39,10 +39,13 @@ const navigate = useNavigate();
     }
 
     function addNewUser(){
-        //creates user data, complete with username, passwords, boards they own, and boards they are a part of.
+        newUser = buildUser(user, password);
+        const updatedUserSet = {...allUsers, [username]: newUser};
+        setAllUsers(updatedUserSet);
+        localStorage.setItem('allUsers', JSON.stringify(updatedUserSet));
     }
 
-    if (false){
+    if (true){
     return (
     <main>
         {/* <h4>Login:</h4>
@@ -65,7 +68,7 @@ const navigate = useNavigate();
     
   );
   };
-    if (true){
+    if (false){
         return (
             <main>
                 <LoggedIn/>
