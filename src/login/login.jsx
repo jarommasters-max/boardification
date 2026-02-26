@@ -2,7 +2,7 @@ import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import {NotLoggedIn} from './notloggedin.jsx';
 
-export function Login({getInfo}) {
+export function Login({getInfo, setAllUsers}) {
     const [user, setUser] = React.useState('');
     const [password, setPassword] = React.useState('');
 
@@ -25,6 +25,20 @@ const navigate = useNavigate();
 
     function passwordChecks(){
         //check password to see if it is valid and associated with that user.
+    }
+
+    function buildUser(user, password){
+        newUser = {
+            username: user,
+            pswrd: password,
+            ownedBoards: [],
+            participatingBoards: []
+        };
+        return newUser;
+    }
+
+    function addNewUser(){
+        //creates user data, complete with username, passwords, boards they own, and boards they are a part of.
     }
 
     if (true){
