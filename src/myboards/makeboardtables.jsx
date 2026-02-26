@@ -30,7 +30,7 @@ export function MakeBoardTables({user, board, addScore}) {
                 {
                     boardScores.map(([scrUser, scr], i) => (
                         <tr key={scrUser}>
-                            <th scope="row" className="small_col">{i}</th>
+                            <th scope="row" className="small_col">{i+1}</th>
                             <td>{scrUser}</td>
                             <td>{scr}</td>
                         </tr>
