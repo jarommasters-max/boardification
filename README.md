@@ -102,8 +102,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **All functionality implemented or mocked out** - Login stores the password, sets the username 
-- [ ] **Hooks** - A navigation hook is used on the login page to automatically navigate to the myboards page.
+- [x] **All functionality implemented or mocked out** - Login stores the password, sets username. When a user registers a username and a password, it saves the user data. When a user tries to log in, the username and password are checked against the stored data. If the password is right, it logs them in. If not, it says that the username and password are incorrect. The create board and myboard pages are functional now. On create board, a user can input a title for a board and a unit by which the score will be measured. The user will be directed to the my boards page, where the board will be fully rendered (and saved in local storage). The user can submit scores to the board (which will be saved in local storage). On the about page, the quote and author are now stored in separate variables and called. This will make switching it to a quote API very simple.
+- [x] **Hooks** - A navigation hook is used on the login page to automatically navigate to the myboards page. useState is also used liberally for data construction, storage, and updating. useEffect is used to update the 
 
 ## 🚀 Service deliverable
 

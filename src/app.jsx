@@ -13,7 +13,14 @@ export default function App() {
   const [allBoards, setAllBoards] = React.useState(JSON.parse(localStorage.getItem('allBoards')) || {});
   const [allUsers, setAllUsers] = React.useState(JSON.parse(localStorage.getItem('allUsers')) || {});
   const [loggedInUser, setLoggedInUser] = React.useState(JSON.parse(localStorage.getItem('loggedInUser')) || false);
-  console.log(allUsers);
+
+  React.useEffect(() => {
+      localStorage.setItem('allUsers', JSON.stringify(allUsers));
+  }, [allUsers]);
+  React.useEffect(() =>{
+    localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+  }, [loggedInUser]);
+
   // In the future, I will have the user data also associated with the boards they have. An object with the username, password,
   // and a list of IDs for the boards they are a part of, so that create.jsx could easily assemble a user-specific list of boards.
 

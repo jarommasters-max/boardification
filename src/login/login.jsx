@@ -16,11 +16,9 @@ const navigate = useNavigate();
         localStorage.setItem('password', password); //remove this soon
         getInfo(user);
         setLoggedInUser(true)
-        localStorage.setItem('loggedInUser', JSON.stringify(true))
         navigate('/myboards');
         return;
         };
-        // setUser(null);
         alert("Username or password are incorrect");
         return;
     }
@@ -56,7 +54,6 @@ const navigate = useNavigate();
         const newUser = buildUser(user, password);
         const updatedUserSet = {...allUsers, [user]: newUser};
         setAllUsers(updatedUserSet);
-        localStorage.setItem('allUsers', JSON.stringify(updatedUserSet));
         return updatedUserSet;
     }
 
@@ -69,7 +66,6 @@ const navigate = useNavigate();
         localStorage.removeItem('username');
         localStorage.removeItem('password')
         setLoggedInUser(false)
-        localStorage.setItem('loggedInUser', JSON.stringify(false))
     }
 
     if (loggedInUser === false){
