@@ -11,6 +11,7 @@ const navigate = useNavigate();
 
     function loginUser() {
         localStorage.setItem('username', user);
+        
         localStorage.setItem('password', password); //remove this soon
         getInfo(user);
         navigate('/myboards');
@@ -25,8 +26,10 @@ const navigate = useNavigate();
     }
 
     function passwordChecks(user, password){
-        if(allUsers[user].pswrd = password){
+        if (allUsers.keys.includes(user)){
+            if(allUsers[user].pswrd = password){
             return true;
+            };
         };
         return false;
     }
