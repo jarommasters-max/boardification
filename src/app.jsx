@@ -24,7 +24,7 @@ export default function App() {
     <header>
         <nav className="navbar">
             <menu className="nav">
-                <li className="nav-item"><img src="board_logo.png" height="50"/></li>
+                <span className="image"><img src="board_logo.png" height="40vh"/></span>
                 <li className="nav-item"><NavLink className="nav-link link-primary" to="">Home</NavLink></li>
                 {user && <li className="nav-item"><NavLink className="nav-link link-secondary" to="create">Create a Board</NavLink></li>}
                 {user && <li className="nav-item"><NavLink className="nav-link link-secondary" to="myboards">My Boards</NavLink></li>}
@@ -36,7 +36,7 @@ export default function App() {
 
     <Routes>
     <Route path='/' element={<Login getInfo={getInfo} setAllUsers={setAllUsers} allUsers={allUsers} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} exact />
-    <Route path='/create' element={<Create user={user} setTempBoard={setTempBoard} setAllBoards={setAllBoards} allBoards={allBoards}/>} />
+    <Route path='/create' element={<Create user={user} setTempBoard={setTempBoard} setAllBoards={setAllBoards} allBoards={allBoards} setAllUsers={setAllUsers} allUsers={allUsers}/>} />
     <Route path='/myboards' element={<Myboards user={user} allBoards={allBoards} setAllBoards={setAllBoards}/>} />
     <Route path='/about' element={<About />} />
     <Route path='*' element={<NotFound />} />
