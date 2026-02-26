@@ -9,8 +9,9 @@ export function Login({getInfo, setAllUsers, allUsers, loggedInUser, setLoggedIn
 
 const navigate = useNavigate();
 
-    function loginUser() {
-        if (passwordChecks(user, password)){
+    function loginUser(usersToSearch = null) {
+        const list = usersToSearch || allUsers;
+        if (passwordChecks(list)){
         localStorage.setItem('username', user);
         localStorage.setItem('password', password); //remove this soon
         getInfo(user);
@@ -19,7 +20,7 @@ const navigate = useNavigate();
         navigate('/myboards');
         return;
         };
-        setUser(null);
+        // setUser(null);
         alert("Username or password are incorrect");
         return;
     }
@@ -32,9 +33,9 @@ const navigate = useNavigate();
         setPassword(txt.target.value);
     }
 
-    function passwordChecks(){
-        if (Object.keys(allUsers).includes(user)){
-            if(allUsers[user].pswrd === password){
+    function passwordChecks(usersToSearch){
+        if (Object.keys(usersToSearch).includes(user)){
+            if(usersToSearch[user].pswrd === password){
             return true;
             };
         };
@@ -56,15 +57,19 @@ const navigate = useNavigate();
         const updatedUserSet = {...allUsers, [user]: newUser};
         setAllUsers(updatedUserSet);
         localStorage.setItem('allUsers', JSON.stringify(updatedUserSet));
+        return updatedUserSet;
     }
 
     function register(){
-        addNewUser();
-        loginUser();
+        const newUserList = addNewUser();
+        loginUser(newUserList);
     }
 
     function signOut(){
-        
+        localStorage.removeItem('username');
+        localStorage.removeItem('password')
+        setLoggedInUser(false)
+        localStorage.setItem('loggedInUser', JSON.stringify(false))
     }
 
     if (loggedInUser === false){
@@ -79,8 +84,8 @@ const navigate = useNavigate();
     if (loggedInUser === true){
         return (
             <main>
-                <LoggedIn/>
+                <LoggedIn signOut={signOut}/>
             </main>
         )
-  }
+  };
 };

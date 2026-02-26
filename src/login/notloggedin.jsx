@@ -14,7 +14,7 @@ return(
                 <input className="form-control" type="text" placeholder="***********" onChange={getPassword}/>
             </div>
             <div className="buttons">
-            <button type="submit" className="btn btn-primary" onClick={loginUser}>Login</button>
+            <button type="submit" className="btn btn-primary" onClick={() => loginUser()}>Login</button>
             <button type="submit" className="btn btn-outline-secondary" onClick={register}>Create Account</button>
             </div>
     </main>
