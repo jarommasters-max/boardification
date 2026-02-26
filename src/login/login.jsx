@@ -1,6 +1,7 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import {NotLoggedIn} from './notloggedin.jsx';
+import {LoggedIn} from './loggedin.jsx'
 
 export function Login({getInfo, setAllUsers}) {
     const [user, setUser] = React.useState('');
@@ -41,8 +42,8 @@ const navigate = useNavigate();
         //creates user data, complete with username, passwords, boards they own, and boards they are a part of.
     }
 
-    if (true){
-  return (
+    if (false){
+    return (
     <main>
         {/* <h4>Login:</h4>
             <div>
@@ -60,7 +61,15 @@ const navigate = useNavigate();
 
         <NotLoggedIn getUser={getUser} getPassword={getPassword} loginUser={loginUser}/>
     </main>
+
     
   );
   };
+    if (true){
+        return (
+            <main>
+                <LoggedIn/>
+            </main>
+        )
+  }
 };
