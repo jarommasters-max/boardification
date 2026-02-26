@@ -10,11 +10,16 @@ export function Login({getInfo, setAllUsers, allUsers}) {
 const navigate = useNavigate();
 
     function loginUser() {
+        if (passwordChecks(user, password)){
         localStorage.setItem('username', user);
-        
         localStorage.setItem('password', password); //remove this soon
         getInfo(user);
         navigate('/myboards');
+        return;
+        };
+        setUser(null);
+        alert("Username or password are incorrect");
+        return;
     }
 
     function getUser(txt) {
@@ -25,9 +30,9 @@ const navigate = useNavigate();
         setPassword(txt.target.value);
     }
 
-    function passwordChecks(user, password){
-        if (allUsers.keys.includes(user)){
-            if(allUsers[user].pswrd = password){
+    function passwordChecks(){
+        if (Object.keys(allUsers).includes(user)){
+            if(allUsers[user].pswrd === password){
             return true;
             };
         };
@@ -59,20 +64,6 @@ const navigate = useNavigate();
     if (true){
     return (
     <main>
-        {/* <h4>Login:</h4>
-            <div>
-                <span>Email</span>
-                <input className="form-control" type="text" placeholder="exampleemail@examplemail.com" onChange={getUser}/>
-            </div>
-            <div>
-                <span>Password</span>
-                <input className="form-control" type="text" placeholder="***********" onChange={getPassword}/>
-            </div>
-            <div className="buttons">
-            <button type="submit" className="btn btn-primary" onClick={loginUser}>Login</button>
-            <button type="submit" className="btn btn-outline-secondary">Create Account</button>
-            </div> */}
-
         <NotLoggedIn getUser={getUser} getPassword={getPassword} loginUser={loginUser} register={register}/>
     </main>
 
