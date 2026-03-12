@@ -13,7 +13,9 @@ let users = [];
 //Service Port
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
-
+//middleware
+app.use(express.json());
+app.use(cookieParser());
 app.use(express.static('public'));
 
 
@@ -23,7 +25,17 @@ app.use(`/api`, apiRouter);
 
 //createAuth
 //endpoint for registering a new user
+apiRouter.post('/auth/create', async (req, res) => {
+    if (await getUser('email', req.body.email)) {
+        res.status(409).send( {msg: 'This User Already Exists'} );
+    }
+    else{
+        const user = await createUser(req.body.email, req.body.password);
 
+        setAuthCookie(res, user.token);
+        res.send({email: user.email});
+    }
+});
 
 //GetAuth
 //endpoint for authenticating a user
@@ -50,11 +62,11 @@ app.use(`/api`, apiRouter);
         
 //Testing endpoint
 
-var testdata = {test:"testdata "};
-apiRouter.get('/test', (_req, res) => {
-    console.log('In Test')
-    res.send(testdata);
-});
+// var testdata = {test:"testdata "};
+// apiRouter.get('/test', (_req, res) => {
+//     console.log('In Test')
+//     res.send(testdata);
+// });
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

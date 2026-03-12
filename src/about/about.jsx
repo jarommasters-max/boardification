@@ -7,13 +7,6 @@ export function About() {
 
     const quote = 'Friendships born on the field of athletic strife are the real gold of competition. Awards become corroded, friends gather no dust.';
 
-    function showTest(){
-        fetch('/api/test')
-        .then((response) => response.json())
-        .then((testing) => {
-            console.log(testing.test);
-        });
-    };
 
   return (
     <main>
@@ -31,7 +24,6 @@ export function About() {
         </p>
         <p id="admonition">
             Getting started is easy. Simply create a board, and see who's the best.
-            <button onClick={showTest}> Test </button>
         </p>
         </div>
         <div id="quote">
