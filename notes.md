@@ -89,11 +89,14 @@ An object/array in local storage
 
 
 TO DO:
-- [ ] create logout page for login page.
+- [x] create logout page for login page.
 - [x] add ability to create leaderboard
 - [x] add ability to add information to leaderboard
-- [ ] add quote-changing functionality to about page
+- [x] add quote-changing functionality to about page
 
 My thoughts at the moment are that I want to use the createboard page to create a board object, containing the category, score type, the list of allowed users, and lastly the list of scores. This will then be passed out of the createboard page and be added to a global map of leaderboards (which can be unpacked based on the users list of leaderboards they are a part of).
 Something I will need to do is also add more functionality to leaderboards (such as the owner of a board being able to delete the board). I will also need to 
 
+## Service
+
+- I have deployed the simon, but I need to now get it working for mine. I am on step 6 now. I need to look again at Simon's endpoints. 
