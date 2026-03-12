@@ -6,6 +6,10 @@ const app = express();
 
 const authCookieName = 'token';
 
+
+//User List
+let users = [];
+
 //Service Port
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
@@ -17,19 +21,23 @@ app.use(express.static('public'));
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
+//createAuth
 //endpoint for registering a new user
 
 
+//GetAuth
 //endpoint for authenticating a user
     //takes email and password
     // returns cookie containing auth token.
     //returns 401 (unauth) if email/password is incorrect
 
 
+//DeleteAuth
 //endpoint for logout
     //Takes a cookie with an auth token
     //marks token invalid
     //return 200
+
 
 
 //Endpoint for getting user (GetMe)
@@ -37,3 +45,17 @@ app.use(`/api`, apiRouter);
     //returns authenticated user
     //if token invalid
         //return 401
+
+
+        
+//Testing endpoint
+
+var testdata = {test:"testdata "};
+apiRouter.get('/test', (_req, res) => {
+    console.log('In Test')
+    res.send(testdata);
+});
+
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+});
