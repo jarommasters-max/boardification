@@ -68,6 +68,13 @@ apiRouter.post('/auth/create', async (req, res) => {
 //     res.send(testdata);
 // });
 
+async function getUser(field, value){
+    if (!value) return null;
+    return users.find((u) => u[field] === value);
+}
+
+
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
