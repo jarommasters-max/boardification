@@ -49,8 +49,8 @@ export default function App() {
                   setAuthState(authState);
                   setUser(username);
                 }}/>} exact />
-    <Route path='/create' element={<Create user={user} />} />
-    <Route path='/myboards' element={<Myboards user={user}/>} />
+    <Route path='/create' element={<Create user={user} authState={authState} />} />
+    <Route path='/myboards' element={<Myboards user={user} authState={authState}/>} />
     <Route path='/about' element={<About />} />
     <Route path='*' element={<NotFound />} />
     </Routes>

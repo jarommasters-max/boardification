@@ -2,37 +2,14 @@ import React from 'react';
 import "./create.css";
 import {useNavigate} from 'react-router-dom';
 
-export function Create({user,setTempBoard,setAllBoards,allBoards, setAllUsers, allUsers, loggedInUser}) { //remove all the tempboard stuff. It's no longer needed.
+export function Create({user, authState}) { //remove all the tempboard stuff. It's no longer needed.
     
     const [category, setCategory] = React.useState('');
     const [scoreType, setScoreType] = React.useState('');
 
     const navigate = useNavigate();
 
-    if (true){ //change this to the new authentication thing
-
-    
-        // function makeNewBoard(cat, scr, user){
-        //     const newBoard = {
-        //         id: crypto.randomUUID(),
-        //         title: cat,
-        //         typeScore: scr,
-        //         owner: user,
-        //         users: [user],
-        //         scores: {}
-        //     }
-        //     return (newBoard);
-        // }
-
-
-        // function createBoard(){
-        //     const newBoard = makeNewBoard(category, scoreType, user);
-        //     setTempBoard(newBoard);
-        //     const updatedBoardSet = {...allBoards, [newBoard.id]: newBoard}
-        //     setAllBoards(updatedBoardSet);
-        //     localStorage.setItem('allBoards', JSON.stringify(updatedBoardSet));
-        //     navigate('/myboards');
-        // }
+    if (authState === 'authenticated'){
 
         function getCategory(txt){
             setCategory(txt.target.value);
@@ -47,8 +24,8 @@ export function Create({user,setTempBoard,setAllBoards,allBoards, setAllUsers, a
     async function postNewBoard(){
         const newBoard = { 
             id: crypto.randomUUID(), 
-            title: cat, 
-            typeScore: scr, 
+            title: category, 
+            typeScore: scoreType, 
             owner: user, 
             users: [user], 
             scores: {}
@@ -61,11 +38,9 @@ export function Create({user,setTempBoard,setAllBoards,allBoards, setAllUsers, a
         if (response?.status === 200) {
             const updatedBoards = await response.json();
             console.log("Success! All boards:", updatedBoards);
+            navigate('/myboards');
         }
     }
-
-        
-
     return (
         <main>
         {user && <p>Logged in as: {user}</p>}
@@ -80,7 +55,7 @@ export function Create({user,setTempBoard,setAllBoards,allBoards, setAllUsers, a
                     <input type="text" className="form-control" placeholder="ex: Litres of Milk" onChange={getScoreType}/>
                 </div>
                 <div className="buttons">
-                <button type="submit" className="btn btn-outline-primary" onClick={createBoard}>Create Board</button>
+                <button type="submit" className="btn btn-outline-primary" onClick={postNewBoard}>Create Board</button>
                 </div>
             </main>
     );
