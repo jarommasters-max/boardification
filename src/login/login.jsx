@@ -5,7 +5,7 @@ import {LoggedIn} from './loggedin.jsx';
 // import { AuthState } from './authState';
 
 
-export function Login({getInfo, loggedInUser, setLoggedInUser, authState, onAuthChange}) {
+export function Login({username, authState, onAuthChange}) {
     const [username, setUser] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [displayError, setDisplayError] = React.useState(null);
@@ -53,7 +53,7 @@ export function Login({getInfo, loggedInUser, setLoggedInUser, authState, onAuth
 
 
     {authState === 'authenticated' && (
-        <NotLoggedIn getUser={getUser} getPassword={getPassword} loginUser={loginUser} makeUser={makeUser}/>
+        <LoggedIn userName={user}/>
     );
     }
 

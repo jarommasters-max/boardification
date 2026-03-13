@@ -9,20 +9,20 @@ import { About } from './about/about';
 
 export default function App() {
   const [user, setUser] = React.useState(localStorage.getItem('username') || null);
-  const [tempBoard, setTempBoard] = React.useState(); //Seems unnecessary now
-  const [allBoards, setAllBoards] = React.useState(JSON.parse(localStorage.getItem('allBoards')) || {});
+  // const [tempBoard, setTempBoard] = React.useState(); //Seems unnecessary now
+  // const [allBoards, setAllBoards] = React.useState(JSON.parse(localStorage.getItem('allBoards')) || {});
   // const [allUsers, setAllUsers] = React.useState(JSON.parse(localStorage.getItem('allUsers')) || {});
-  const [loggedInUser, setLoggedInUser] = React.useState(JSON.parse(localStorage.getItem('loggedInUser')) || false);
+  // const [loggedInUser, setLoggedInUser] = React.useState(JSON.parse(localStorage.getItem('loggedInUser')) || false);
   const currentAuthState = userName ? 'authenticated' : 'unauthenticated';
   const [authState, setAuthState] = React.useState(currentAuthState);
 
-  
-  React.useEffect(() => {
-      localStorage.setItem('allUsers', JSON.stringify(allUsers));
-  }, [allUsers]);
-  React.useEffect(() =>{
-    localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
-  }, [loggedInUser]);
+
+  // React.useEffect(() => {
+  //     localStorage.setItem('allUsers', JSON.stringify(allUsers));
+  // }, [allUsers]);
+  // React.useEffect(() =>{
+  //   localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+  // }, [loggedInUser]);
 
   // In the future, I will have the user data also associated with the boards they have. An object with the username, password,
   // and a list of IDs for the boards they are a part of, so that create.jsx could easily assemble a user-specific list of boards.
@@ -45,7 +45,7 @@ export default function App() {
     </header>
 
     <Routes>
-    <Route path='/' element={<Login setUser={setUser} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} authState={authState} onAuthChange={(userName, authState) => {
+    <Route path='/' element={<Login setUser={setUser} authState={authState} onAuthChange={(userName, authState) => {
                   setAuthState(authState);
                   setUser(userName);
                 }}/>} exact />
