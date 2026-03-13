@@ -7,11 +7,11 @@ export function Myboards({user, authState}) {
   const navigate = useNavigate();
 
   // const [scoreToAdd, setScoreToAdd] = React.useState() //I don't know if this should be here, or just in the makeboardtables file. :\ hm...
-    const [allBoards, setAllBoards] = React.useState([]);
+    const [allBoards, setAllBoards] = React.useState({});
 
 
   if (true){
-  function addScore(boardId, user, scoreToAdd){
+  async function addScore(boardId, user, scoreToAdd){
     // setAllBoards(prev => {
     //   const updatedBoards = {...prev};
     //   updatedBoards[boardId].scores = {
@@ -20,6 +20,16 @@ export function Myboards({user, authState}) {
     //   };
     //   localStorage.setItem('allBoards', JSON.stringify(updatedBoards));
     //     return updatedBoards;
+      const response = await fetch('/api/addScore', {
+            method: 'post',
+            body: JSON.stringify({bid: boardId, user: user, score: scoreToAdd}),
+            headers: {'Content-type': 'application/json; charset=UTF-8',}
+        });
+        if (response?.status === 200) {
+            const updatedBoards = await response.json();
+            setAllBoards(updatedBoards);
+            console.log("Success! All boards:", updatedBoards);
+        }
       
     };
 
