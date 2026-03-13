@@ -13,7 +13,7 @@ export default function App() {
   // const [allBoards, setAllBoards] = React.useState(JSON.parse(localStorage.getItem('allBoards')) || {});
   // const [allUsers, setAllUsers] = React.useState(JSON.parse(localStorage.getItem('allUsers')) || {});
   // const [loggedInUser, setLoggedInUser] = React.useState(JSON.parse(localStorage.getItem('loggedInUser')) || false);
-  const currentAuthState = userName ? 'authenticated' : 'unauthenticated';
+  const currentAuthState = user ? 'authenticated' : 'unauthenticated';
   const [authState, setAuthState] = React.useState(currentAuthState);
 
 
@@ -47,10 +47,10 @@ export default function App() {
     <Routes>
     <Route path='/' element={<Login setUser={setUser} authState={authState} onAuthChange={(userName, authState) => {
                   setAuthState(authState);
-                  setUser(userName);
+                  setUser(user);
                 }}/>} exact />
-    <Route path='/create' element={<Create user={user} setTempBoard={setTempBoard} setAllBoards={setAllBoards} allBoards={allBoards} loggedInUser={loggedInUser}/>} />
-    <Route path='/myboards' element={<Myboards user={user} allBoards={allBoards} setAllBoards={setAllBoards} loggedInUser={loggedInUser}/>} />
+    <Route path='/create' element={<Create user={user} />} />
+    <Route path='/myboards' element={<Myboards user={user}/>} />
     <Route path='/about' element={<About />} />
     <Route path='*' element={<NotFound />} />
     </Routes>
