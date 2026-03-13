@@ -4,7 +4,7 @@ import {NotLoggedIn} from './notloggedin.jsx';
 import {LoggedIn} from './loggedin.jsx'
 
 export function Login({getInfo, setAllUsers, allUsers, loggedInUser, setLoggedInUser}) {
-    const [user, setUser] = React.useState('');
+    const [username, setUser] = React.useState('');
     const [password, setPassword] = React.useState('');
 
 // const navigate = useNavigate();
@@ -23,13 +23,13 @@ export function Login({getInfo, setAllUsers, allUsers, loggedInUser, setLoggedIn
 //         return;
 //     }
 
-//     function getUser(txt) {
-//         setUser(txt.target.value);
-//     }
+    function getUser(txt) {
+        setUser(txt.target.value);
+    }
 
-//     function getPassword(txt){
-//         setPassword(txt.target.value);
-//     }
+    function getPassword(txt){
+        setPassword(txt.target.value);
+    }
 
 //     function passwordChecks(usersToSearch){
 //         if (Object.keys(usersToSearch).includes(user)){
@@ -81,7 +81,7 @@ export function Login({getInfo, setAllUsers, allUsers, loggedInUser, setLoggedIn
         const response = await fetch(endpoint, {
             method: 'post',
             body: JSON.stringify({
-                email: userName,
+                email: username,
                 password: password
             }),
             headers: {
@@ -89,8 +89,8 @@ export function Login({getInfo, setAllUsers, allUsers, loggedInUser, setLoggedIn
             },
         });
         if (response?.status === 200) {
-            localStorage.setItem('userName', userName);
-            props.onLogin(userName);
+            localStorage.setItem('username', username);
+            props.onLogin(username);
         }
         else {
       const body = await response.json();
