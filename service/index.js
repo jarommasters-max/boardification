@@ -42,6 +42,18 @@ apiRouter.post('/auth/create', async (req, res) => {
     //takes email and password
     // returns cookie containing auth token.
     //returns 401 (unauth) if email/password is incorrect
+apiRouter.post('/auth/login', async (req, res) => {
+    const user = await getUser('email', req.body.email);
+    if (user) {
+        if (await bcrypt.compare(req.body.password, user.password)) {
+            user.token = uuid.v4();
+            setAuthCookie(res, user.token);
+            res.send({email: user.email});
+            return;
+        }
+    }
+    res.status(401).send({msg: 'Incorrect Username/Password. Login Unsuccessful.'})
+})
 
 
 //DeleteAuth
