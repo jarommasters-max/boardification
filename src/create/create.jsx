@@ -9,30 +9,30 @@ export function Create({user,setTempBoard,setAllBoards,allBoards, setAllUsers, a
 
     const navigate = useNavigate();
 
-    if (loggedInUser){
+    if (true){ //change this to the new authentication thing
 
     
-        function makeNewBoard(cat, scr, user){
-            const newBoard = {
-                id: crypto.randomUUID(),
-                title: cat,
-                typeScore: scr,
-                owner: user,
-                users: [user],
-                scores: {}
-            }
-            return (newBoard);
-        }
+        // function makeNewBoard(cat, scr, user){
+        //     const newBoard = {
+        //         id: crypto.randomUUID(),
+        //         title: cat,
+        //         typeScore: scr,
+        //         owner: user,
+        //         users: [user],
+        //         scores: {}
+        //     }
+        //     return (newBoard);
+        // }
 
 
-        function createBoard(){
-            const newBoard = makeNewBoard(category, scoreType, user);
-            setTempBoard(newBoard);
-            const updatedBoardSet = {...allBoards, [newBoard.id]: newBoard}
-            setAllBoards(updatedBoardSet);
-            localStorage.setItem('allBoards', JSON.stringify(updatedBoardSet));
-            navigate('/myboards');
-        }
+        // function createBoard(){
+        //     const newBoard = makeNewBoard(category, scoreType, user);
+        //     setTempBoard(newBoard);
+        //     const updatedBoardSet = {...allBoards, [newBoard.id]: newBoard}
+        //     setAllBoards(updatedBoardSet);
+        //     localStorage.setItem('allBoards', JSON.stringify(updatedBoardSet));
+        //     navigate('/myboards');
+        // }
 
         function getCategory(txt){
             setCategory(txt.target.value);
@@ -42,6 +42,29 @@ export function Create({user,setTempBoard,setAllBoards,allBoards, setAllUsers, a
         function getScoreType(txt){
             setScoreType(txt.target.value);
         }
+
+
+    async function postNewBoard(){
+        const newBoard = { 
+            id: crypto.randomUUID(), 
+            title: cat, 
+            typeScore: scr, 
+            owner: user, 
+            users: [user], 
+            scores: {}
+        }
+        const response = await fetch('/api/board', {
+            method: 'post',
+            body: JSON.stringify({ newBoard }),
+            headers: {'Content-type': 'application/json; charset=UTF-8',}
+        });
+        if (response?.status === 200) {
+            const updatedBoards = await response.json();
+            console.log("Success! All boards:", updatedBoards);
+        }
+    }
+
+        
 
     return (
         <main>

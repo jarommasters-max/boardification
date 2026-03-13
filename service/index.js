@@ -9,6 +9,7 @@ const authCookieName = 'token';
 
 //User List
 let users = [];
+let boards = [];
 
 //Service Port
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -91,6 +92,25 @@ const verifyAuth = async (req, res, next) => {
 //     console.log('In Test')
 //     res.send(testdata);
 // });
+
+//newBoard
+apiRouter.post('/board', verifyAuth, (req, res) => {
+  boards = updateBoardList(req.body);
+  res.send(boards);
+});
+
+//function to add new boards to the boards array.
+function updateBoardList(newBoard){
+    boards.push(newBoard);
+    return boards;
+};
+
+
+//addScoreToBoard
+    //insert code here
+
+//function to add scores to a specific board
+    //insert code here
 
 
 //function to create a user
