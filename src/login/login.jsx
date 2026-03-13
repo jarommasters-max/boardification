@@ -15,7 +15,7 @@ export function Login({username, authState, onAuthChange}) {
 return(
     <main>
     {authState === 'authenticated' && (
-        <LoggedIn userName={username}/>
+        <LoggedIn username={username} onLogout={()=>onAuthChange(username, 'unauthenticated')}/>
     )}
 
     {authState === 'unauthenticated' && (

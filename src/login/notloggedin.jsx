@@ -1,7 +1,7 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
 
-export function NotLoggedIn({getUser,getPassword,loginUser,makeUser}){
+export function NotLoggedIn(props){
     const [user, setUser] = React.useState('');
     const [password, setPassword] = React.useState('');
 
@@ -26,7 +26,7 @@ export function NotLoggedIn({getUser,getPassword,loginUser,makeUser}){
         const response = await fetch(endpoint, {
             method: 'POST',
             body: JSON.stringify({
-                email: username,
+                email: user,
                 password: password
             }),
             headers: {
@@ -35,11 +35,11 @@ export function NotLoggedIn({getUser,getPassword,loginUser,makeUser}){
         });
         if (response?.status === 200) {
             localStorage.setItem('username', user);
-            // props.onLogin(username);
+            props.onLogin(user);
         }
         else {
         const body = await response.json();
-        setDisplayError(`Error: ${body.msg}`);
+        // setDisplayError(`Error: ${body.msg}`);
     }
     }
 
