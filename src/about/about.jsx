@@ -3,12 +3,25 @@ import "./about.css";
 
 export function About() {
     //When an API is implemented, this will be very easy to set the author and quote set up.
-    
+    const ideaWord = "";
+
+    // async function getWords(){
+    //     const otherUrl = "https://fakerapi.it/api/v2/custom?_quantity=5&customfield1=word";
+    //     try {
+    //         const response = await fetch(otherUrl);
+    //         if (!response.ok) throw new Error(`Error: ${response.status}`);
+    //             const data = await response.json();
+    //             console.log(data);
+    //     } catch (error) {
+    //         console.error("Error fetching data:", error);
+    //     }
+    }
 
     const author = "Jesse Owens";
 
     const quote = 'Friendships born on the field of athletic strife are the real gold of competition. Awards become corroded, friends gather no dust.';
 
+    getWords();
 
   return (
     <main>
