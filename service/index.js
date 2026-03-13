@@ -112,6 +112,11 @@ function updateBoardList(newBoard){
 //function to add scores to a specific board
     //insert code here
 
+//function to send boards
+apiRouter.get('/getBoards', verifyAuth, (_req, res) => {
+  res.send(boards);
+});
+
 
 //function to create a user
 async function createUser(username, password) {

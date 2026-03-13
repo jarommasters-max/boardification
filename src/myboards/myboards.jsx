@@ -3,22 +3,29 @@ import "./myboards.css";
 import {MakeBoardTables} from './makeboardtables.jsx';
 import {useNavigate} from 'react-router-dom';
 
-export function Myboards({user, allBoards, setAllBoards, loggedInUser}) {
+export function Myboards({user, authState}) {
   const navigate = useNavigate();
 
-  const [scoreToAdd, setScoreToAdd] = React.useState() //I don't know if this should be here, or just in the makeboardtables file. :\ hm...
-  if (loggedInUser){
+  // const [scoreToAdd, setScoreToAdd] = React.useState() //I don't know if this should be here, or just in the makeboardtables file. :\ hm...
+
+
+  if (true){
   function addScore(boardId, user, scoreToAdd){
     //Note for the future, this will eventually need to be a promise once this is pulling from a shared database.
-    setAllBoards(prev => {
-      const updatedBoards = {...prev};
-      updatedBoards[boardId].scores = {
-        ...updatedBoards[boardId].scores,
-        [user]: scoreToAdd
-      };
-      localStorage.setItem('allBoards', JSON.stringify(updatedBoards));
-        return updatedBoards;
-    });
+
+    // setAllBoards(prev => {
+    //   const updatedBoards = {...prev};
+    //   updatedBoards[boardId].scores = {
+    //     ...updatedBoards[boardId].scores,
+    //     [user]: scoreToAdd
+    //   };
+    //   localStorage.setItem('allBoards', JSON.stringify(updatedBoards));
+    //     return updatedBoards;
+    // });
+
+
+    //FUNCTION TO GET ALL BOARDS FROM SERVER
+
   };
 
   return (
