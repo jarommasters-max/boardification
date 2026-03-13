@@ -109,12 +109,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
-- [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
+- [x] **Node.js/Express HTTP service** - Express is used in index.js, and there is an app.listen() at the bottom of index.js that makes it an http service.
+- [x] **Static middleware for frontend** - I use app.use(express.static('public')) in my index.js to route the resource search to the public directory if it isn't API
 - [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
-- [ ] **Backend service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Frontend calls service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Supports registration, login, logout, and restricted endpoint** - I did not complete this part of the deliverable.
+- [x] **Backend service endpoints** - I have a few that are part of the login process (creating cookies, users, authentication, logout, etc) as well as some that are a part of the board functionality. There is a service endpoint that adds boards (under unique IDs as keys) to a boards object. There is another that adds scores from specific users to a specific board object.
+- [x] **Frontend calls service endpoints** - In my login page, it uses post and delete calls to the service endpoints to facilitate logging in and out. In the board functionality, it uses post to send information to the backend. To load boards onto myboards, I use fetch calls to recieve the data from the backend. In posting and updating boards, data is sent to the backend for processing, and data is sent back.
+- [x] **Supports registration, login, logout, and restricted endpoint** - Login page allows for account creation, sign in, and sign out. An authentication token cookie is given to the browser at login. This cookie is used for authentication in submitting and creating boards.
 
 ## 🚀 DB deliverable
 

@@ -107,30 +107,16 @@ function updateBoardList(newBoard){
 
 
 //addScoreToBoard
-api.Router.post('/addScore', verifyAuth, (req, res) => {
-    const { boardId, user, score } = req.body;
-  if (boards[boardId]) {
-    boards[boardId].scores[user] = score;
+apiRouter.post('/addScore', verifyAuth, (req, res) => {
+    const { bid, user, score } = req.body;
+  if (boards[bid]) {
+    boards[bid].scores[user] = score;
     res.send(boards);
   } else {
     res.status(404).send({ msg: "Board not found" });
   }
 });
 
-// //function to add scores to a specific board
-//     //insert code here
-// function addToBoard(boardInfo){
-//     const boarid = boardInfo.id;
-//     const user = boardInfo.user;
-//     const scoreToAdd = boardInfo.score;
-//     const boardToAddTo = boards[0];
-//     for (let i = 0; i < boards.length; i++){
-//         if (boards[i].id === boarid){
-//             boardToAddTo = boards[i];
-//             break;
-//         }
-//     }
-// }
 
 //function to send boards
 apiRouter.get('/getBoards', verifyAuth, (_req, res) => {

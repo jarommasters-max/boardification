@@ -9,7 +9,7 @@ export function MakeBoardTables({user, board, addScore}) {
         setScoreToAdd(txt.target.value)
     }
 
-    function preAddScore(allBoards){
+    function preAddScore(){
         const boardId = board.id;
         addScore(boardId, user, scoreToAdd)
     }

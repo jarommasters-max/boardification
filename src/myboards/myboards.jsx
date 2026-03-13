@@ -12,14 +12,6 @@ export function Myboards({user, authState}) {
 
   if (true){
   async function addScore(boardId, user, scoreToAdd){
-    // setAllBoards(prev => {
-    //   const updatedBoards = {...prev};
-    //   updatedBoards[boardId].scores = {
-    //     ...updatedBoards[boardId].scores,
-    //     [user]: scoreToAdd
-    //   };
-    //   localStorage.setItem('allBoards', JSON.stringify(updatedBoards));
-    //     return updatedBoards;
       const response = await fetch('/api/addScore', {
             method: 'post',
             body: JSON.stringify({bid: boardId, user: user, score: scoreToAdd}),

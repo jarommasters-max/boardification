@@ -3,6 +3,8 @@ import "./about.css";
 
 export function About() {
     //When an API is implemented, this will be very easy to set the author and quote set up.
+    
+
     const author = "Jesse Owens";
 
     const quote = 'Friendships born on the field of athletic strife are the real gold of competition. Awards become corroded, friends gather no dust.';
