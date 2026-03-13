@@ -8,12 +8,15 @@ import { Myboards } from './myboards/myboards';
 import { About } from './about/about';
 
 export default function App() {
-  const [user, getInfo] = React.useState(localStorage.getItem('username') || null);
+  const [user, setUser] = React.useState(localStorage.getItem('username') || null);
   const [tempBoard, setTempBoard] = React.useState(); //Seems unnecessary now
   const [allBoards, setAllBoards] = React.useState(JSON.parse(localStorage.getItem('allBoards')) || {});
-  const [allUsers, setAllUsers] = React.useState(JSON.parse(localStorage.getItem('allUsers')) || {});
+  // const [allUsers, setAllUsers] = React.useState(JSON.parse(localStorage.getItem('allUsers')) || {});
   const [loggedInUser, setLoggedInUser] = React.useState(JSON.parse(localStorage.getItem('loggedInUser')) || false);
+  const currentAuthState = userName ? 'authenticated' : 'unauthenticated';
+  const [authState, setAuthState] = React.useState(currentAuthState);
 
+  
   React.useEffect(() => {
       localStorage.setItem('allUsers', JSON.stringify(allUsers));
   }, [allUsers]);
@@ -42,8 +45,11 @@ export default function App() {
     </header>
 
     <Routes>
-    <Route path='/' element={<Login getInfo={getInfo} setAllUsers={setAllUsers} allUsers={allUsers} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} exact />
-    <Route path='/create' element={<Create user={user} setTempBoard={setTempBoard} setAllBoards={setAllBoards} allBoards={allBoards} setAllUsers={setAllUsers} allUsers={allUsers} loggedInUser={loggedInUser}/>} />
+    <Route path='/' element={<Login setUser={setUser} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} authState={authState} onAuthChange={(userName, authState) => {
+                  setAuthState(authState);
+                  setUser(userName);
+                }}/>} exact />
+    <Route path='/create' element={<Create user={user} setTempBoard={setTempBoard} setAllBoards={setAllBoards} allBoards={allBoards} loggedInUser={loggedInUser}/>} />
     <Route path='/myboards' element={<Myboards user={user} allBoards={allBoards} setAllBoards={setAllBoards} loggedInUser={loggedInUser}/>} />
     <Route path='/about' element={<About />} />
     <Route path='*' element={<NotFound />} />

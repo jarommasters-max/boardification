@@ -1,27 +1,15 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import {NotLoggedIn} from './notloggedin.jsx';
-import {LoggedIn} from './loggedin.jsx'
+import {LoggedIn} from './loggedin.jsx';
+// import { AuthState } from './authState';
 
-export function Login({getInfo, setAllUsers, allUsers, loggedInUser, setLoggedInUser}) {
+
+export function Login({getInfo, loggedInUser, setLoggedInUser, authState, onAuthChange}) {
     const [username, setUser] = React.useState('');
     const [password, setPassword] = React.useState('');
+    const [displayError, setDisplayError] = React.useState(null);
 
-// const navigate = useNavigate();
-
-//     function loginUser(usersToSearch = null) {
-//         const list = usersToSearch || allUsers;
-//         if (passwordChecks(list)){
-//         localStorage.setItem('username', user);
-//         localStorage.setItem('password', password); //remove this soon
-//         getInfo(user);
-//         setLoggedInUser(true)
-//         navigate('/myboards');
-//         return;
-//         };
-//         alert("Username or password are incorrect");
-//         return;
-//     }
 
     function getUser(txt) {
         setUser(txt.target.value);
@@ -30,43 +18,6 @@ export function Login({getInfo, setAllUsers, allUsers, loggedInUser, setLoggedIn
     function getPassword(txt){
         setPassword(txt.target.value);
     }
-
-//     function passwordChecks(usersToSearch){
-//         if (Object.keys(usersToSearch).includes(user)){
-//             if(usersToSearch[user].pswrd === password){
-//             return true;
-//             };
-//         };
-//         return false;
-//     }
-
-//     function buildUser(user, password){
-//         const newUser = {
-//             username: user,
-//             pswrd: password,
-//             ownedBoards: [],
-//             participatingBoards: []
-//         };
-//         return newUser;
-//     }
-
-//     function addNewUser(){
-//         const newUser = buildUser(user, password);
-//         const updatedUserSet = {...allUsers, [user]: newUser};
-//         setAllUsers(updatedUserSet);
-//         return updatedUserSet;
-//     }
-
-//     function register(){
-//         const newUserList = addNewUser();
-//         loginUser(newUserList);
-//     }
-
-//     function signOut(){
-//         localStorage.removeItem('username');
-//         localStorage.removeItem('password')
-//         setLoggedInUser(false)
-//     }
 
 
     async function loginUser() {
@@ -79,7 +30,7 @@ export function Login({getInfo, setAllUsers, allUsers, loggedInUser, setLoggedIn
     
     async function loginOrMakeUser(endpoint) {
         const response = await fetch(endpoint, {
-            method: 'post',
+            method: 'POST',
             body: JSON.stringify({
                 email: username,
                 password: password
@@ -90,7 +41,7 @@ export function Login({getInfo, setAllUsers, allUsers, loggedInUser, setLoggedIn
         });
         if (response?.status === 200) {
             localStorage.setItem('username', username);
-            props.onLogin(username);
+            // props.onLogin(username);
         }
         else {
       const body = await response.json();
@@ -98,15 +49,19 @@ export function Login({getInfo, setAllUsers, allUsers, loggedInUser, setLoggedIn
     }
     }
 
-    if (loggedInUser === false){
-    return (
-    <main>
-        <NotLoggedIn getUser={getUser} getPassword={getPassword} loginUser={loginUser} makeUser={makeUser}/>
-    </main>
 
-    
-  );
-  };
+
+
+    {authState === 'authenticated' && (
+        <NotLoggedIn getUser={getUser} getPassword={getPassword} loginUser={loginUser} makeUser={makeUser}/>
+    );
+    }
+
+    {authState === 'unauthenticated' && (
+        <NotLoggedIn getUser={getUser} getPassword={getPassword} loginUser={loginUser} makeUser={makeUser}/>
+    );
+    }
+
     if (loggedInUser === true){
         return (
             <main>
