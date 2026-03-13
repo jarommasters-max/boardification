@@ -5,13 +5,22 @@ export function NotLoggedIn({getUser,getPassword,loginUser,makeUser}){
     const [user, setUser] = React.useState('');
     const [password, setPassword] = React.useState('');
 
-async function loginUser() {
-    loginOrMakeUser(`/api/auth/login`);
+        function getUser(txt) {
+        setUser(txt.target.value);
     }
 
-    async function makeUser() {
-        loginOrMakeUser(`/api/auth/create`);
+    function getPassword(txt){
+        setPassword(txt.target.value);
+        console.log(txt.target.value);
     }
+
+    async function loginUser() {
+        loginOrMakeUser(`/api/auth/login`);
+        }
+
+        async function makeUser() {
+            loginOrMakeUser(`/api/auth/create`);
+        }
     
     async function loginOrMakeUser(endpoint) {
         const response = await fetch(endpoint, {

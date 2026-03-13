@@ -11,26 +11,16 @@ export function Login({username, authState, onAuthChange}) {
     // const [displayError, setDisplayError] = React.useState(null);
 
 
-    function getUser(txt) {
-        setUser(txt.target.value);
-    }
 
-    function getPassword(txt){
-        setPassword(txt.target.value);
-    }
-
-
-
-
+return(
+    <main>
     {authState === 'authenticated' && (
         <LoggedIn userName={username}/>
-    );
-    }
+    )}
 
     {authState === 'unauthenticated' && (
         <NotLoggedIn username={username} onLogin={(loginUserName) => {
               onAuthChange(loginUserName, 'authenticated');}}/>
-    );
-    }
-
+    )}
+</main>);
 };
