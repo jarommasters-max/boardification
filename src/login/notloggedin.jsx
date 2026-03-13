@@ -2,6 +2,21 @@ import React from 'react';
 import {useNavigate} from 'react-router-dom';
 
 export function NotLoggedIn({getUser,getPassword,loginUser,register}){
+    
+    async function loginOrMakeUser(endpoint) {
+        const response = await fetch(endpoint, {
+            method: 'post',
+            body: JSON.stringify({
+                email: userName,
+                password: password
+            }),
+            headers: {
+                'Content-type': 'application/json; charser=UTF-8',
+            },
+        });
+    }
+
+
 return(
 <main>
         <h4>Login:</h4>
