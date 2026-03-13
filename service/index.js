@@ -61,14 +61,18 @@ apiRouter.post('/auth/login', async (req, res) => {
     //Takes a cookie with an auth token
     //marks token invalid
     //return 200
+apiRouter.delete('/auth/logout', async (req, res) => {
+    const user = await getUser('token', req.cookies[authCookieName]);
+    if (user) {
+        delete user.token;
+    }
+    res.clearCookie(authCookieName);
+    res.status(204).end();
+});
 
 
+//checking user authentication
 
-//Endpoint for getting user (GetMe)
-    //takes a cookie with auth token
-    //returns authenticated user
-    //if token invalid
-        //return 401
 
 
         
