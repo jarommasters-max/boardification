@@ -22,17 +22,23 @@ export function Create({user, authState}) { //remove all the tempboard stuff. It
 
 
     async function postNewBoard(){
-        const newBoard = { 
-            id: crypto.randomUUID(), 
-            title: category, 
-            typeScore: scoreType, 
-            owner: user, 
-            users: [user], 
-            scores: {}
-        }
+        // const newBoard = { 
+        //     id: crypto.randomUUID(), 
+        //     title: category, 
+        //     typeScore: scoreType, 
+        //     owner: user, 
+        //     users: [user], 
+        //     scores: {}
+        // }
         const response = await fetch('/api/board', {
             method: 'post',
-            body: JSON.stringify({ newBoard }),
+            body: JSON.stringify({ 
+                id: crypto.randomUUID(), 
+                title: category, 
+                typeScore: scoreType, 
+                owner: user, 
+                users: [user], 
+                scores: {} }),
             headers: {'Content-type': 'application/json; charset=UTF-8',}
         });
         if (response?.status === 200) {

@@ -9,7 +9,7 @@ const authCookieName = 'token';
 
 //User List
 let users = [];
-let boards = [];
+let boards = {};
 
 //Service Port
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -101,16 +101,31 @@ apiRouter.post('/board', verifyAuth, (req, res) => {
 
 //function to add new boards to the boards array.
 function updateBoardList(newBoard){
-    boards.push(newBoard);
+    boards[newBoard.id] = newBoard;
     return boards;
 };
 
 
-//addScoreToBoard
-    //insert code here
+// //addScoreToBoard
+// api.Router.post('/addScore', verifyAuth, (req, res) => {
+//     boards = addToBoard(req.body);
+//     res.send(boards);
+// });
 
-//function to add scores to a specific board
-    //insert code here
+// //function to add scores to a specific board
+//     //insert code here
+// function addToBoard(boardInfo){
+//     const boarid = boardInfo.id;
+//     const user = boardInfo.user;
+//     const scoreToAdd = boardInfo.score;
+//     const boardToAddTo = boards[0];
+//     for (let i = 0; i < boards.length; i++){
+//         if (boards[i].id === boarid){
+//             boardToAddTo = boards[i];
+//             break;
+//         }
+//     }
+// }
 
 //function to send boards
 apiRouter.get('/getBoards', verifyAuth, (_req, res) => {
