@@ -3,31 +3,38 @@ import "./about.css";
 
 export function About() {
     //When an API is implemented, this will be very easy to set the author and quote set up.
-    const ideaWord = "";
+    const [ideaText, setIdeaText] = React.useState("An idea can come from anywhere");
+    const [ideaTitle, setIdeaTitle] = React.useState("Idea Generator");
 
-    // async function getWords(){
-    //     const otherUrl = "https://fakerapi.it/api/v2/custom?_quantity=5&customfield1=word";
-    //     try {
-    //         const response = await fetch(otherUrl);
-    //         if (!response.ok) throw new Error(`Error: ${response.status}`);
-    //             const data = await response.json();
-    //             console.log(data);
-    //     } catch (error) {
-    //         console.error("Error fetching data:", error);
-    //     }
+    async function getWords(){
+        const otherUrl = "https://fakerapi.it/api/v2/texts?_quantity=1&_characters=30";
+        try {
+            const response = await fetch(otherUrl);
+            if (!response.ok) throw new Error(`Error: ${response.status}`);
+                const data = await response.json();
+                return data;
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
     }
 
-    const author = "Jesse Owens";
+    getWords()
 
-    const quote = 'Friendships born on the field of athletic strife are the real gold of competition. Awards become corroded, friends gather no dust.';
+    async function newQuote(){
+         const data = await getWords();
+         const title = data.data[0].title;
+         const content = data.data[0].content;
+         setIdeaText(content);
+         setIdeaTitle(title);
+         
+    }
 
-    getWords();
+    
 
   return (
     <main>
         <div></div>
         <h2>About Boardification</h2>
-        <br/>
         <div id="explanation">
         <p><b>What is Boardification?</b></p>
         <p>
@@ -40,10 +47,12 @@ export function About() {
         <p id="admonition">
             Getting started is easy. Simply create a board, and see who's the best.
         </p>
+        <div id="quote">The button below can help you come up with ideas. Open your mind. Anything you think of can be boardificated!</div>
         </div>
         <div id="quote">
-        <p>"{quote}"</p>
-        <p>--{author}</p>
+        <div>"{ideaText}"</div>
+        <div>--{ideaTitle}--</div>
+        <button className="btn btn-outline-secondary" onClick={newQuote}>New Abstract Idea</button>
         </div>
         <br/>
         <p id="class_explanation">
