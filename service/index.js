@@ -138,6 +138,10 @@ async function createUser(username, password) {
     return user;
 }
 
+app.use((_req, res) => {
+  res.sendFile('index.html', { root: 'public' });
+});
+
 
 async function getUser(field, value){
     if (!value) return null;
