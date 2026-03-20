@@ -94,22 +94,23 @@ const verifyAuth = async (req, res, next) => {
 // });
 
 //newBoard
-apiRouter.post('/board', verifyAuth, (req, res) => {
+apiRouter.post('/board', verifyAuth, (req, res) => { //This will need to be changed as well
   boards = updateBoardList(req.body);
   res.send(boards);
 });
 
 //function to add new boards to the boards array.
 function updateBoardList(newBoard){
-    boards[newBoard.id] = newBoard;
-    return boards;
+    //in the SIMON updateScores(newScore) (which is similar to this), it does this:
+    boards[newBoard.id] = newBoard; //await DB.addScore(newScore);
+    return boards; //return DB.getHighScores();
 };
 
 
 //addScoreToBoard
-apiRouter.post('/addScore', verifyAuth, (req, res) => {
+apiRouter.post('/addScore', verifyAuth, (req, res) => { //This will need to be modified.
     const { bid, user, score } = req.body;
-  if (boards[bid]) {
+  if (boards[bid]) { //Change so it looks for an entry, calls for bid in db.
     boards[bid].scores[user] = score;
     res.send(boards);
   } else {
@@ -120,7 +121,7 @@ apiRouter.post('/addScore', verifyAuth, (req, res) => {
 
 //function to send boards
 apiRouter.get('/getBoards', verifyAuth, (_req, res) => {
-  res.send(boards);
+  res.send(boards); //I will need to replace this will a call to a DB function to get all boards from the DB.
 });
 
 
@@ -133,7 +134,7 @@ async function createUser(username, password) {
         password: passwordHash,
         token: uuid.v4(),
     };
-    users.push(user);
+    users.push(user);//in SIMON, this is replaced by an await DB.addUser(user) to send the user to the DB.
 
     return user;
 }
@@ -145,6 +146,8 @@ app.use((_req, res) => {
 
 async function getUser(field, value){
     if (!value) return null;
+    //SIMON calls a DB.getUserByToken(value) here within an if statement, for if the field is a token.
+    //then it returns a call to the DB.getUser(value)
     return users.find((u) => u[field] === value);
 }
 
