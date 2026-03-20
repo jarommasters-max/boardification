@@ -6,3 +6,11 @@ const client = new MongoClient(url);
 const db = client.db('boardificaton');
 const userCollection = db.collection('user');
 const boardCollection = db.collection('board');
+
+async function addBoard(board) {
+    await boardCollection.insertOne(board);
+}
+
+// async function updateBoard(board) {
+//     await
+// }
