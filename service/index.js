@@ -3,13 +3,14 @@ const bcrypt = require('bcryptjs');
 const express = require('express');
 const uuid = require('uuid');
 const app = express();
+const DB = require('./database.js');
 
 const authCookieName = 'token';
 
 
 //User List
-let users = [];
-let boards = {};
+// let users = [];
+// let boards = {};
 
 //Service Port
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -110,7 +111,8 @@ function updateBoardList(newBoard){
 //addScoreToBoard
 apiRouter.post('/addScore', verifyAuth, (req, res) => { //This will need to be modified.
     const { bid, user, score } = req.body;
-  if (boards[bid]) { //Change so it looks for an entry, calls for bid in db.
+    board = DB.getSingleBoard(bid);
+  if (board) { //Change so it looks for an entry, calls for bid in db.
     boards[bid].scores[user] = score;
     res.send(boards);
   } else {

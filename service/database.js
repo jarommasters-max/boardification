@@ -36,8 +36,13 @@ async function updateUserDeauthenticate(user){
     await userCollection.updateOne({email: user.email}, {$unset:{token:1}});
 }
 
-// async function addScoreToBoard() {
-// }
+async function getSingleBoard(bid){
+    return boardCollection.getOne({bid: bid})
+}
+
+async function addScoreToBoard(boardID, board) {
+    await boardCollection.updateOne({bid: boardID}, {$set:{user: user}}, {$set:{}}) //incomplete
+}
 
 //Some function to return all boards
 
@@ -49,6 +54,8 @@ module.exports = {
     addUser,
     updateUser,
     updateUserDeauthenticate,
-    
+    getSingleBoard,
+    addScoreToBoard,
+
     
 }
