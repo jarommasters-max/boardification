@@ -17,11 +17,12 @@ async function addBoard(board) {
 
 
 async function getUser(email) {
-    userCollection.findOne({email: email});
+    return userCollection.findOne({email: email});
 }
 
-// async function getUserWithToken(token) {
-// }
+async function getUserWithToken(token) {
+    return userCollection.findOne({token: token});
+}
 
 // async function addUser(user) {
 // }
@@ -40,5 +41,6 @@ async function getUser(email) {
 
 module.exports = {
     addBoard,
+    getUser,
     
 }
