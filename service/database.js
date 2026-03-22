@@ -16,9 +16,9 @@ async function addBoard(board) {
 // }
 
 
-//async function getUser(email) {
-// 
-//}
+async function getUser(email) {
+    userCollection.findOne({email: email});
+}
 
 // async function getUserWithToken(token) {
 // }
