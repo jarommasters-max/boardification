@@ -24,14 +24,17 @@ async function getUserWithToken(token) {
     return userCollection.findOne({token: token});
 }
 
-// async function addUser(user) {
-// }
+async function addUser(user) {
+    await userCollection.insertOne({user});
+}
 
-// async function updateUser(user) {
-// }
+async function updateUser(user) {
+    await userCollection.updateOne({email: user.email}, {$set: user});
+}
 
-// async function updateUserDeauthenticate{
-// }
+async function updateUserDeauthenticate(user){
+    await userCollection.updateOne({email: user.email}, {$unset:{token:1}});
+}
 
 // async function addScoreToBoard() {
 // }
@@ -42,5 +45,10 @@ async function getUserWithToken(token) {
 module.exports = {
     addBoard,
     getUser,
+    getUserWithToken,
+    addUser,
+    updateUser,
+    updateUserDeauthenticate,
+    
     
 }
