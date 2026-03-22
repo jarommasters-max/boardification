@@ -14,3 +14,31 @@ async function addBoard(board) {
 // async function updateBoard(board) {
 //     await
 // }
+
+
+//async function getUser(email) {
+// 
+//}
+
+// async function getUserWithToken(token) {
+// }
+
+// async function addUser(user) {
+// }
+
+// async function updateUser(user) {
+// }
+
+// async function updateUserDeauthenticate{
+// }
+
+// async function addScoreToBoard() {
+// }
+
+//Some function to return all boards
+
+
+module.exports = {
+    addBoard,
+    
+}
