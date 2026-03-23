@@ -37,14 +37,17 @@ async function updateUserDeauthenticate(user){
 }
 
 async function getSingleBoard(bid){
-    return boardCollection.getOne({bid: bid})
+    return boardCollection.findOne({bid: bid})
 }
 
-async function addScoreToBoard(boardID, board) {
-    await boardCollection.updateOne({bid: boardID}, {$set:{user: user}}, {$set:{}}) //incomplete
+async function addScoreToBoard(boardID, user, score) {
+    await boardCollection.updateOne({bid: boardID}, {$set: {[`scores.${user}`]: score }})
 }
 
 //Some function to return all boards
+async function getAllBoards(){
+    return boardCollection.find().toArray();
+}
 
 
 module.exports = {

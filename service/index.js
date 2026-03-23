@@ -107,16 +107,26 @@ function updateBoardList(newBoard){
     return boards; //return DB.getHighScores();
 };
 
+//get all boards
+apiRouter.get('/boards', async (req, res) => {
+    const boards = await DB.getAllBoards();
+    res.send(boards);
+})
+
 
 //addScoreToBoard
-apiRouter.post('/addScore', verifyAuth, (req, res) => { //This will need to be modified.
+apiRouter.post('/addScore', verifyAuth, async (req, res) => { //This will need to be modified.
     const { bid, user, score } = req.body;
-    board = DB.getSingleBoard(bid);
-  if (board) { //Change so it looks for an entry, calls for bid in db.
-    boards[bid].scores[user] = score;
-    res.send(boards);
+    try {
+    const board = await DB.getSingleBoard(bid); //possibly just move to the if statement
+  if (board) {
+    await DB.addScoreToBoard(bid, user, score)
   } else {
     res.status(404).send({ msg: "Board not found" });
+  }
+  }
+  catch (error){
+    res.status(500).send({msg: "DB error"})
   }
 });
 

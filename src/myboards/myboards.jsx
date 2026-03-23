@@ -26,14 +26,21 @@ export function Myboards({user, authState}) {
     };
 
 
-    //FUNCTION TO GET ALL BOARDS FROM SERVER
-    React.useEffect(() => {
-    fetch('/api/getBoards')
-      .then((response) => response.json())
-      .then((boards) => {
-        setAllBoards(boards);
-      });
-  }, []);
+    //OLD FUNCTION TO GET ALL BOARDS FROM SERVER
+  //   React.useEffect(() => {
+  //   fetch('/api/getBoards')
+  //     .then((response) => response.json())
+  //     .then((boards) => {
+  //       setAllBoards(boards);
+  //     });
+  // }, []);
+
+  //NEW FUNCTION TO GET ALL BOARDS FROM DB:
+      React.useEffect(() => {
+        fetch('/api/boards')
+        .then(response => response.json())
+        .then(data => setAllBoards(data));
+      }, [])
 
   return (
     <main>
