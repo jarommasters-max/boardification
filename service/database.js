@@ -44,7 +44,6 @@ async function addScoreToBoard(boardID, user, score) {
     await boardCollection.updateOne({id: boardID}, {$set: {[`scores.${user}`]: score }})
 }
 
-//Some function to return all boards
 async function getAllBoards(){
     return boardCollection.find().toArray();
 }

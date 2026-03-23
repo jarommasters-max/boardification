@@ -7,11 +7,6 @@ const DB = require('./database.js');
 
 const authCookieName = 'token';
 
-
-//User List
-// let users = [];
-// let boards = {};
-
 //Service Port
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
@@ -53,10 +48,6 @@ apiRouter.post('/auth/create', async (req, res) => {
 });
 
 //GetAuth
-//endpoint for authenticating a user
-    //takes email and password
-    // returns cookie containing auth token.
-    //returns 401 (unauth) if email/password is incorrect
 apiRouter.post('/auth/login', async (req, res) => {
     const user = await getUser('email', req.body.email);
     if (user) {
@@ -73,10 +64,6 @@ apiRouter.post('/auth/login', async (req, res) => {
 
 
 //DeleteAuth
-//endpoint for logout
-    //Takes a cookie with an auth token
-    //marks token invalid
-    //return 200
 apiRouter.delete('/auth/logout', async (req, res) => {
     const user = await getUser('token', req.cookies[authCookieName]);
     if (user) {
@@ -86,16 +73,6 @@ apiRouter.delete('/auth/logout', async (req, res) => {
     res.status(204).end();
 });
 
-
-        
-//Testing endpoint
-
-// var testdata = {test:"testdata "};
-// apiRouter.get('/test', (_req, res) => {
-//     console.log('In Test')
-//     res.send(testdata);
-// });
-
 //newBoard
 apiRouter.post('/board', verifyAuth, async (req, res) => { //This will need to be changed as well
   newBoard = req.body;
@@ -103,14 +80,6 @@ apiRouter.post('/board', verifyAuth, async (req, res) => { //This will need to b
   allBoards = await DB.getAllBoards();
   res.send(allBoards);
 });
-
-// //function to add new boards to the boards array.
-// function updateBoardList(newBoard){
-//     //in the SIMON updateScores(newScore) (which is similar to this), it does this:
-//     boards[newBoard.id] = newBoard; //await DB.addScore(newScore);
-//     return boards; //return DB.getHighScores();
-// };
-
 
 //addScoreToBoard
 apiRouter.post('/addScore', verifyAuth, async (req, res) => { //This will need to be modified.
