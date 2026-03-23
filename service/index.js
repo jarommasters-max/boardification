@@ -25,6 +25,19 @@ app.use(express.static('public'));
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
+
+//checking user authentication
+const verifyAuth = async (req, res, next) => {
+    const user = await getUser('token', req.cookies[authCookieName]);
+    if (user) {
+        next();
+    }
+    else {
+        res.status(401).send({msg: 'Authorization Failed'});
+    }
+};
+
+
 //createAuth
 //endpoint for registering a new user
 apiRouter.post('/auth/create', async (req, res) => {
@@ -49,13 +62,14 @@ apiRouter.post('/auth/login', async (req, res) => {
     if (user) {
         if (await bcrypt.compare(req.body.password, user.password)) {
             user.token = uuid.v4();
+            await DB.updateUser(user);
             setAuthCookie(res, user.token);
             res.send({email: user.email});
             return;
         }
     }
     res.status(401).send({msg: 'Incorrect Username/Password. Login Unsuccessful.'})
-})
+});
 
 
 //DeleteAuth
@@ -66,23 +80,11 @@ apiRouter.post('/auth/login', async (req, res) => {
 apiRouter.delete('/auth/logout', async (req, res) => {
     const user = await getUser('token', req.cookies[authCookieName]);
     if (user) {
-        delete user.token;
+        await DB.updateUserDeauthenticate(user);
     }
     res.clearCookie(authCookieName);
     res.status(204).end();
 });
-
-
-//checking user authentication
-const verifyAuth = async (req, res, next) => {
-    const user = await getUser('token', req.cookies[authCookieName]);
-    if (user) {
-        next();
-    }
-    else {
-        res.status(401).send({msg: 'Authorization Failed'});
-    }
-};
 
 
         
@@ -95,23 +97,19 @@ const verifyAuth = async (req, res, next) => {
 // });
 
 //newBoard
-apiRouter.post('/board', verifyAuth, (req, res) => { //This will need to be changed as well
-  boards = updateBoardList(req.body);
-  res.send(boards);
+apiRouter.post('/board', verifyAuth, async (req, res) => { //This will need to be changed as well
+  newBoard = req.body;
+  await DB.addBoard(newBoard)
+  allBoards = await DB.getAllBoards();
+  res.send(allBoards);
 });
 
-//function to add new boards to the boards array.
-function updateBoardList(newBoard){
-    //in the SIMON updateScores(newScore) (which is similar to this), it does this:
-    boards[newBoard.id] = newBoard; //await DB.addScore(newScore);
-    return boards; //return DB.getHighScores();
-};
-
-//get all boards
-apiRouter.get('/boards', async (req, res) => {
-    const boards = await DB.getAllBoards();
-    res.send(boards);
-})
+// //function to add new boards to the boards array.
+// function updateBoardList(newBoard){
+//     //in the SIMON updateScores(newScore) (which is similar to this), it does this:
+//     boards[newBoard.id] = newBoard; //await DB.addScore(newScore);
+//     return boards; //return DB.getHighScores();
+// };
 
 
 //addScoreToBoard
@@ -120,7 +118,7 @@ apiRouter.post('/addScore', verifyAuth, async (req, res) => { //This will need t
     try {
     const board = await DB.getSingleBoard(bid); //possibly just move to the if statement
   if (board) {
-    await DB.addScoreToBoard(bid, user, score)
+    return await DB.addScoreToBoard(bid, user, score)
   } else {
     res.status(404).send({ msg: "Board not found" });
   }
@@ -132,9 +130,10 @@ apiRouter.post('/addScore', verifyAuth, async (req, res) => { //This will need t
 
 
 //function to send boards
-apiRouter.get('/getBoards', verifyAuth, (_req, res) => {
-  res.send(boards); //I will need to replace this will a call to a DB function to get all boards from the DB.
-});
+apiRouter.get('/boards', async (req, res) => {
+    const boards = await DB.getAllBoards();
+    res.send(boards);
+})
 
 
 //function to create a user
@@ -146,8 +145,7 @@ async function createUser(username, password) {
         password: passwordHash,
         token: uuid.v4(),
     };
-    users.push(user);//in SIMON, this is replaced by an await DB.addUser(user) to send the user to the DB.
-
+    await DB.addUser(user);
     return user;
 }
 
@@ -159,8 +157,11 @@ app.use((_req, res) => {
 async function getUser(field, value){
     if (!value) return null;
     //SIMON calls a DB.getUserByToken(value) here within an if statement, for if the field is a token.
+    if (field === 'token') {
+        return DB.getUserWithToken(value)
+    }
     //then it returns a call to the DB.getUser(value)
-    return users.find((u) => u[field] === value);
+    return DB.getUser(value);
 }
 
 //setAuthCookie

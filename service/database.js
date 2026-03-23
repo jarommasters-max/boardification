@@ -25,7 +25,7 @@ async function getUserWithToken(token) {
 }
 
 async function addUser(user) {
-    await userCollection.insertOne({user});
+    await userCollection.insertOne(user);
 }
 
 async function updateUser(user) {
@@ -37,11 +37,11 @@ async function updateUserDeauthenticate(user){
 }
 
 async function getSingleBoard(bid){
-    return boardCollection.findOne({bid: bid})
+    return boardCollection.findOne({id: bid})
 }
 
 async function addScoreToBoard(boardID, user, score) {
-    await boardCollection.updateOne({bid: boardID}, {$set: {[`scores.${user}`]: score }})
+    await boardCollection.updateOne({id: boardID}, {$set: {[`scores.${user}`]: score }})
 }
 
 //Some function to return all boards
@@ -59,6 +59,6 @@ module.exports = {
     updateUserDeauthenticate,
     getSingleBoard,
     addScoreToBoard,
-
+    getAllBoards,
     
 }
