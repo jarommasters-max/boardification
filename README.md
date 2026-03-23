@@ -120,8 +120,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Stores data in MongoDB** - I did not complete this part of the deliverable.
-- [ ] **Stores credentials in MongoDB** - I did not complete this part of the deliverable.
+- [x] **Stores data in MongoDB** - Data is sent to and retrieved from MongoDB. Functions to send data to MongoDB are in database.js, and they are used in index.js. Leaderboard objects are sent to the database, and they are retrieved and updated as scores are submitted.
+- [x] **Stores credentials in MongoDB** - Username, hashed password, and token are all stored in the database and updated on logout and login.
 
 ## 🚀 WebSocket deliverable
 
