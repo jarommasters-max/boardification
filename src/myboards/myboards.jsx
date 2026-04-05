@@ -10,6 +10,27 @@ export function Myboards({user, authState}) {
 
   // const [scoreToAdd, setScoreToAdd] = React.useState() //I don't know if this should be here, or just in the makeboardtables file. :\ hm...
     const [allBoards, setAllBoards] = React.useState({});
+  
+
+//Functions to handle automatic board updating
+  const refreshBoards = () => {
+    fetch('/api/boards')
+      .then(response => response.json())
+      .then(data => setAllBoards({...data}));
+  };
+  React.useEffect(() => {
+    refreshBoards();
+    const handleRemoteUpdate = (event) => {
+      if (event.type === BoardEvent.End) {
+        console.log("Remote score detected! Refreshing tables...");
+        refreshBoards(); 
+      }
+    };
+    BoardNotifier.addHandler(handleRemoteUpdate);
+    return () => {
+      BoardNotifier.removeHandler(handleRemoteUpdate);
+    };
+  }, []);
 
 
   if (true){
