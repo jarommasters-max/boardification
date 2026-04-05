@@ -47,7 +47,7 @@ export function About() {
         <p id="admonition">
             Getting started is easy. Simply create a board, and see who's the best.
         </p>
-        <div id="quote">The button below can help you come up with ideas. Open your mind. Anything you think of can be boardificated!</div>
+        <div id="quote">The button below generates very abstract sentences. Open your mind to what it leads you to. Anything you think of can be boardificated!</div>
         </div>
         <div id="quote">
         <div>"{ideaText}"</div>

@@ -22,7 +22,7 @@ export function Myboards({user, authState}) {
     refreshBoards();
     const handleRemoteUpdate = (event) => {
       if (event.type === BoardEvent.End) {
-        console.log("Remote score detected! Refreshing tables...");
+        console.log("Refreshing tables...");
         refreshBoards(); 
       }
     };
