@@ -53,6 +53,7 @@ div {
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
   background-color: rgb(25, 49, 80);
   color: white;
 }

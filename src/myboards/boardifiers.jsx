@@ -1,4 +1,5 @@
 import React from 'react';
+import './boardifiers.css';
 
 import {BoardEvent, BoardNotifier} from './boardUpdateNotifier';
 
@@ -45,12 +46,7 @@ export function Boardifiers(props) {
 
 
     return (
-        <div className='players'>
-            {/* Player: 
-            <span className='player-name'> {userName}  */}
             <div id='player-messages'>{makeDisplayMessage()}</div>
-            {/* </span> */}
-        </div>
     )
 
 }
