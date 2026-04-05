@@ -1,7 +1,15 @@
 import React from 'react';
 
-import {BoardEvent, BoardEventNotifier} from './boardUpdateNotifier';
+import {BoardEvent, BoardNotifier} from './boardUpdateNotifier';
 
 export function Boardifiers(props) {
-    
+
+    const userName = props.userName;
+
+    const [events, setEvent] = React.useState([]);
+
+    React.useEffect(() => {
+        BoardNotifier.addHandle
+    })  
+
 }

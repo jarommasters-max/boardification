@@ -2,6 +2,7 @@ import React from 'react';
 import "./myboards.css";
 import {MakeBoardTables} from './makeboardtables.jsx';
 import {useNavigate} from 'react-router-dom';
+import {Boardifiers} from './boardifiers';
 
 export function Myboards({user, authState}) {
   const navigate = useNavigate();
@@ -44,6 +45,9 @@ export function Myboards({user, authState}) {
 
   return (
     <main>
+      
+      <boardifiers userName={user}/>
+
       {user && <p>Logged in as: {user}</p>}
         <h2>My Boards</h2>
         {Object.values(allBoards).map((board) => (
