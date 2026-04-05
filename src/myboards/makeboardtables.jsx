@@ -11,7 +11,9 @@ export function MakeBoardTables({user, board, addScore}) {
 
     function preAddScore(){
         const boardId = board.id;
-        addScore(boardId, user, scoreToAdd)
+        const boardTitle = board.title;
+        const units = board.typeScore;
+        addScore(boardTitle, units, boardId, user, scoreToAdd)
     }
 
     return (

@@ -26,7 +26,7 @@ export function Boardifiers(props) {
     }
         let message = 'unknown';
         if (event.type === BoardEvent.End) {
-            message = `${event.from} scored ${event.value.score}`;
+            message = `${event.from} scored ${event.value.score} ${event.value.units} on ${event.value.title}`;
         }
         else if (event.type === BoardEvent.Start){
             message =  `logged on`;

@@ -13,7 +13,7 @@ export function Myboards({user, authState}) {
 
 
   if (true){
-  async function addScore(boardId, user, scoreToAdd){
+  async function addScore(boardTitle, units, boardId, user, scoreToAdd){
       const response = await fetch('/api/addScore', {
             method: 'post',
             body: JSON.stringify({bid: boardId, user: user, score: scoreToAdd}),
@@ -23,7 +23,7 @@ export function Myboards({user, authState}) {
             const updatedBoards = await response.json();
             setAllBoards({...updatedBoards});
             console.log("Success! All boards:", updatedBoards);
-            BoardNotifier.broadcastEvent(user, BoardEvent.End, {score: scoreToAdd})
+            BoardNotifier.broadcastEvent(user, BoardEvent.End, {score: scoreToAdd, title: boardTitle, units: units})
         }
       
     };
