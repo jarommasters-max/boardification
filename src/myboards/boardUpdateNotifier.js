@@ -58,4 +58,4 @@ class BoardEventNotifier {
 
 const BoardNotifier = new BoardEventNotifier;
 
-export {BoardEvent, BoardEventNotifier};
+export {BoardEvent, BoardNotifier};

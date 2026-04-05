@@ -76,9 +76,9 @@ apiRouter.delete('/auth/logout', async (req, res) => {
 
 //newBoard
 apiRouter.post('/board', verifyAuth, async (req, res) => { //This will need to be changed as well
-  newBoard = req.body;
+  const newBoard = req.body;
   await DB.addBoard(newBoard)
-  allBoards = await DB.getAllBoards();
+  const allBoards = await DB.getAllBoards();
   res.send(allBoards);
 });
 
@@ -146,7 +146,7 @@ function setAuthCookie(res, authToken) {
 
 
 
-app.listen(port, () => {
+const httpService = app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 

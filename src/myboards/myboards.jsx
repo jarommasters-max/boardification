@@ -46,7 +46,7 @@ export function Myboards({user, authState}) {
   return (
     <main>
       
-      <boardifiers userName={user}/>
+      <Boardifiers userName={user}/>
 
       {user && <p>Logged in as: {user}</p>}
         <h2>My Boards</h2>

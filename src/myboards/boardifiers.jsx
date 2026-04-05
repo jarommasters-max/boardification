@@ -8,8 +8,15 @@ export function Boardifiers(props) {
 
     const [events, setEvent] = React.useState([]);
 
-    React.useEffect(() => {
-        BoardNotifier.addHandle
-    })  
+    // React.useEffect(() => {
+    //     BoardNotifier.addHandle
+    // })  
+
+
+    return (
+        <div className='players'>
+            Player
+        </div>
+    )
 
 }
