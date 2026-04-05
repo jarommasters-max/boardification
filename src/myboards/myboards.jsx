@@ -3,6 +3,7 @@ import "./myboards.css";
 import {MakeBoardTables} from './makeboardtables.jsx';
 import {useNavigate} from 'react-router-dom';
 import {Boardifiers} from './boardifiers';
+import {BoardEvent, BoardNotifier} from './boardUpdateNotifier';
 
 export function Myboards({user, authState}) {
   const navigate = useNavigate();
@@ -20,8 +21,9 @@ export function Myboards({user, authState}) {
         });
         if (response?.status === 200) {
             const updatedBoards = await response.json();
-            setAllBoards(updatedBoards);
+            setAllBoards({...updatedBoards});
             console.log("Success! All boards:", updatedBoards);
+            BoardNotifier.broadcastEvent(user, BoardEvent.End, {score: scoreToAdd})
         }
       
     };

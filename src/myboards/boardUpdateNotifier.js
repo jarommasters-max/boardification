@@ -1,6 +1,7 @@
 const BoardEvent = {
-    System: 'system', //possibly un-needed.
-    Posted: 'posted',
+  System: 'system',
+  End: 'gameEnd',
+  Start: 'gameStart',
 };
 
 class EventMessage {
@@ -15,14 +16,14 @@ class EventMessage {
 
 class BoardEventNotifier {
 
-    event = ''; //I am thinking that rather than updating a list, it will
-                //just update an event string. That should be all it needs
+    event; //I am thinking that rather than updating a list, it will
+    handlers = [];            //just update an event string. That should be all it needs
                 //to do.
 
     //I don't really need an array of it. I am just planning on updating a single line
     //if someone has updated a board. It needs to send the thing.
 
-    contructor() {
+    constructor() {
         let port = window.location.port; //This seems to be necessary
         const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
         this.socket = new WebSocket(`${protocol}://${window.location.hostname}:${port}/ws`);
@@ -32,13 +33,16 @@ class BoardEventNotifier {
         this.receiveEvent(new EventMessage('Boardification', BoardEvent.System, { msg: 'connected' }));
         };
         //onclose
+        this.socket.onclose = (event) => {
+            this.receiveEvent(new EventMessage('Boardification', BoardEvent.System, { msg: 'disconnected' }));
+        };
 
         //onmessage
         this.socket.onmessage = async (msg) => {
             try {
                 const event = JSON.parse(await msg.data.text());
                 this.receiveEvent(event);
-            } catch {}
+            } catch {console.log('WS error')}
         };
     }
 
@@ -48,14 +52,23 @@ class BoardEventNotifier {
         this.socket.send(JSON.stringify(event));
         }
 
-    //addhandler??
+    addHandler(handler) {
+        this.handlers.push(handler);
+    }
 
-    //removehandler??
+    removeHandler(handler) {
+        this.handlers = this.handlers.filter((h) => h !== handler);
+    }
 
-    //recieve event(){
-    //}
+    receiveEvent(event) {
+        this.event = event;
+        this.handlers.forEach((handler) => {
+        handler(event);
+        });
+    }
+
 }
 
-const BoardNotifier = new BoardEventNotifier;
+const BoardNotifier = new BoardEventNotifier();
 
 export {BoardEvent, BoardNotifier};

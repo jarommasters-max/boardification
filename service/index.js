@@ -88,7 +88,9 @@ apiRouter.post('/addScore', verifyAuth, async (req, res) => { //This will need t
     try {
     const board = await DB.getSingleBoard(bid); //possibly just move to the if statement
   if (board) {
-    return await DB.addScoreToBoard(bid, user, score)
+    await DB.addScoreToBoard(bid, user, score)
+    const updatedBoards = await DB.getAllBoards();
+    res.send(updatedBoards);
   } else {
     res.status(404).send({ msg: "Board not found" });
   }

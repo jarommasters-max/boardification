@@ -37,15 +37,15 @@ export function MakeBoardTables({user, board, addScore}) {
                 }
             </tbody>
         </table>
-        <form method="get">
+        {/* <form method="get"> */}
         <div className="score_sub">
             <span>Submit Score:</span>
             <input type="text" className="form-control" placeholder="Score" onChange={getUserAddedScore}/>
         </div>
         <div className="buttons">
-        <button type="submit" className="btn btn-outline-primary" onClick={preAddScore}>Submit Score</button>
+        <button type="button" className="btn btn-outline-primary" onClick={preAddScore}>Submit Score</button>
         </div>
-        </form>
+        {/* </form> */}
         </main>
     );
 }
