@@ -127,8 +127,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Backend listens for WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Frontend makes WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Data sent over WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **WebSocket data displayed** - I did not complete this part of the deliverable.
-- [ ] **Application is fully functional** - I did not complete this part of the deliverable.
+- [x] **Backend listens for WebSocket connection** - It listens. In my index.js file, I have it call peerProxy.js, which handles the listening. 
+- [x] **Frontend makes WebSocket connection** - On the myboards page, it is able to connect and 
+- [x] **Data sent over WebSocket connection** - Whenever a user submits a score, a message is updated at the top saying who submitted the score, the score, and what board they submitted it to.
+- [x] **WebSocket data displayed** - The data is sent (as mentioned previously) and it is displayed in a notification at the top, which is updated each time there is a score submitted. Additionally, when the frontend recieves a score over websocket, it tells it to re-render the boards to they reflect the updated score.
+- [x] **Application is fully functional** - Users are able to login, logout, create boards, and submit/update scores to the boards. The website has full functionality (though now that I have this done, I may add additional functionality to it).
