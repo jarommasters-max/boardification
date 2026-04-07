@@ -36,19 +36,20 @@ export function About() {
         <div></div>
         <h2>About Boardification</h2>
         <div id="explanation">
-        <p><b>What is Boardification?</b></p>
-        <p>
-            Boardification is a tool for making anything quantifiable into a competition.
-            Do you want to compete with your friends to see who can run the most miles in
-            a week? Do you want to see who can fold the highest number of paper cranes in
-            thirty minutes? Boardification is the tool to use, and for many other situations
-            as well.
-        </p>
-        <p id="admonition">
-            Getting started is easy. Simply create a board, and see who's the best.
-        </p>
-        <div id="quote">The button below generates very abstract sentences. Open your mind to what it leads you to. Anything you think of can be boardificated!</div>
+            <p><b>What is Boardification?</b></p>
+            <p>
+                Boardification is a tool for making anything quantifiable into a competition.
+                Do you want to compete with your friends to see who can run the most miles in
+                a week? Do you want to see who can fold the highest number of paper cranes in
+                thirty minutes? Boardification is the tool to use, and for many other situations
+                as well.
+            </p>
+            <p>
+                Getting started is easy. Simply create a board, and see who's the best.
+            </p>
+            <div id="quote">The button below generates very abstract sentences. Open your mind to what it leads you to. Anything you think of can be boardificated!</div>
         </div>
+
         <div id="quote">
         <div>"{ideaText}"</div>
         <div>--{ideaTitle}--</div>

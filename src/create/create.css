@@ -7,19 +7,19 @@ html {
   height: 100%;
 }
 
-header {
+/* header {
     flex: 0 90px;
     font-size: 15px;
-    background: rgb(46, 45, 58);
+    background: rgb(46, 45, 58); */
     /* color: rgb(226, 226, 226); */
 
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     justify-content: start;
     align-items: center;
     flex-wrap: nowrap;
 
-}
+} */
 
 .username_display {
   padding: 1em
@@ -30,14 +30,14 @@ div {
 }
 
 
-body {
+/* body {
   margin: 0;
   display: flex;
   flex-direction: column;
   height: 100%;
   background-color: rgb(25, 49, 80);
   color: white;
-}
+} */
 
 main {
   flex: 1;
@@ -48,7 +48,7 @@ main {
     align-items: center;
 }
 
-footer {
+/* footer {
     flex: 0 10px;
 
     display: flex;
@@ -57,7 +57,7 @@ footer {
     align-items: center;
     background-color: rgb(0, 26, 43);
 
-}
+} */
 
 .buttons {
     display: flex;

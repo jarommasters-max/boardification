@@ -11,12 +11,14 @@ html {
 header {
     flex: 0 90px;
     font-size: 15px;
-    background: rgb(46, 45, 58);
+    /* background: rgb(46, 45, 58); */
+    background-color: #2F3D40;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: start;
     align-items: center;
-    width: 100%;
+    flex-wrap: nowrap;
+
 }
 
 menu{
@@ -54,9 +56,20 @@ div {
   flex-direction: column;
   height: 100%;
   width: 100%;
-  background-color: rgb(25, 49, 80);
+  /* background-color: rgb(25, 49, 80); */
+  background-color: #3D5A73;
   color: white;
 }
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #3D5A73;
+  color: white;
+}
+
 
 
 /* main {
@@ -88,7 +101,8 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(0, 26, 43);
+    /* background-color: rgb(0, 26, 43); */
+    background-color: #2F3D40;  
 
 }
 

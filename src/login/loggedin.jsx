@@ -18,7 +18,7 @@ export function LoggedIn(props){
     return(
         <main>
         <h2>Welcome {localStorage.getItem('username')}. You are currently logged in.</h2>
-        <button type="submit" className="btn btn-outline-secondary" onClick={logout}>Sign Out</button>
+        <button type="submit" className="btn btn-secondary" onClick={logout}>Sign Out</button>
         </main>
     )
 }

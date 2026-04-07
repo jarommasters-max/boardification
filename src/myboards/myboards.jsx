@@ -70,9 +70,10 @@ export function Myboards({user, authState}) {
     <main>
       
       <Boardifiers userName={user}/>
-
+      <div id={"mainPart"}>
       {user && <p>Logged in as: {user}</p>}
-        <h2>My Boards</h2>
+        <h2 id={"title"}>My Boards</h2>
+        </div>
         {Object.values(allBoards).map((board) => (
           <MakeBoardTables key={board.id} user={user} board={board} addScore={addScore}/>
         ))}

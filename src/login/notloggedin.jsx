@@ -54,7 +54,7 @@ return(
             </div>
             <div>
                 <span>Password</span>
-                <input className="form-control" type="text" placeholder="***********" onChange={getPassword}/>
+                <input className="form-control" type="password" placeholder="***********" onChange={getPassword}/>
             </div>
             <div className="buttons">
             <button type="submit" className="btn btn-primary" onClick={() => loginUser()}>Login</button>
