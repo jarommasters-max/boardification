@@ -54,7 +54,7 @@ export function Create({user, authState}) { //remove all the tempboard stuff. It
                     <input type="text" className="form-control" placeholder="ex: Litres of Milk" onChange={getScoreType}/>
                 </div>
                 <div className="buttons">
-                <button type="submit" className="btn btn-outline-primary" onClick={postNewBoard}>Create Board</button>
+                <button type="submit" className="btn btn-primary" onClick={postNewBoard}>Create Board</button>
                 </div>
             </main>
     );
@@ -66,7 +66,7 @@ else {
     return(
     <main>
     <h1>You must be logged in to access this page</h1>
-    <button type="submit" className="btn btn-outline-primary" onClick={returnToLogin}>Click Here to Return to Login</button>
+    <button type="submit" className="btn btn-primary" onClick={returnToLogin}>Click Here to Return to Login</button>
     </main>
     );
     
